@@ -80,6 +80,15 @@ const reveals = () => {
     inView(pops[0], () => void animate(pops, { opacity: [0, 1], scale: [0.4, 1] }, { type: spring, bounce: 0.55, visualDuration: 0.5, delay: stagger(0.12, { startDelay: 0.9 }) }));
   }
 
+  const animos = all("[data-animo]");
+  if (animos.length) {
+    animate(
+      animos,
+      { opacity: [0, 1], scale: [0.2, 1], rotate: [-25, 0] },
+      { type: spring, bounce: 0.6, visualDuration: 0.6, delay: stagger(0.09, { startDelay: 0.35, from: "center" }) },
+    );
+  }
+
   for (const el of all("[data-draw]")) {
     inView(el, () => void animate(el, { scaleX: [0, 1] }, { duration: 0.9, ease: [0.65, 0, 0.35, 1], delay: delayOf(el) }), { margin: viewMargin });
   }
@@ -198,6 +207,31 @@ const microInteractions = () => {
   }
 
   if (finePointer) for (const el of all("[data-tilt]")) tilt(el, Number(el.dataset.tilt) || 8);
+
+  for (const el of all(".animo-body")) {
+    hover(el, () => {
+      animate(el, { scale: [1, 1.18, 1.1], rotate: [0, -10, 6, 0] }, { duration: 0.5, ease: "easeOut" });
+      return () => void animate(el, { scale: 1 }, { type: spring, bounce: 0.6, visualDuration: 0.4 });
+    });
+  }
+
+  const hero = document.querySelector<HTMLElement>("[data-hero]");
+  const bodies = all("[data-hero] .animo-body");
+  if (finePointer && hero && bodies.length) {
+    hero.addEventListener("pointermove", (event) => {
+      for (const el of bodies) {
+        const rect = el.getBoundingClientRect();
+        const dx = rect.left + rect.width / 2 - event.clientX;
+        const dy = rect.top + rect.height / 2 - event.clientY;
+        const distance = Math.hypot(dx, dy);
+        const push = Math.max(0, 1 - distance / 260) * 36;
+        animate(el, { x: (dx / (distance || 1)) * push, y: (dy / (distance || 1)) * push }, snappy);
+      }
+    });
+    hero.addEventListener("pointerleave", () => {
+      for (const el of bodies) animate(el, { x: 0, y: 0 }, { type: spring, bounce: 0.5, visualDuration: 0.6 });
+    });
+  }
 
   for (const el of all("[data-lift]")) {
     hover(el, () => {
