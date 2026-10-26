@@ -8,10 +8,10 @@ export const SITE = {
   pricePerPsychologist: "14,99",
   priceAmount: "14.99",
   legal: {
-    owner: "[NOMBRE O RAZÓN SOCIAL]",
-    taxId: "[NIF]",
-    address: "[DOMICILIO]",
-    email: "[EMAIL DE PRIVACIDAD]",
+    owner: "Adrian Rocafull Berbel",
+    taxId: "53882287A",
+    address: "Avenida Rey Juan Carlos I, n.º 12, 46900 Torrent, Valencia, España",
+    email: "adrianrocafull1@gmail.com",
   },
 };
 
