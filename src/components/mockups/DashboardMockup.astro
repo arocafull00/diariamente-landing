@@ -1,0 +1,70 @@
+---
+import { Users, BookOpen, Bell, Search } from "@lucide/astro";
+import PatientRow from "./PatientRow.astro";
+import EmotionBar from "./EmotionBar.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const patients = [
+  { name: "Laura Martín", initials: "LM", avatar: "bg-coral-soft text-[#c42a3a]", last: "Hace 2 h · intensidad alta", unread: 3, active: true },
+  { name: "Carlos Ruiz", initials: "CR", avatar: "bg-sky-soft text-[#2953b8]", last: "Ayer · intensidad media", unread: 1 },
+  { name: "Marta Gil", initials: "MG", avatar: "bg-mint-soft text-[#157a43]", last: "Hace 3 días · intensidad baja", unread: 0 },
+  { name: "Iván Prieto", initials: "IP", avatar: "bg-sun-soft text-[#9a5b00]", last: "Hoy · intensidad media", unread: 2 },
+];
+---
+
+<div class:list={["overflow-hidden rounded-[1.4rem] bg-white text-left shadow-[0_40px_80px_-30px_#2e2a3566] ring-1 ring-ink/5", className]}>
+  <div class="flex items-center gap-2 border-b border-line px-4 py-3">
+    <span class="size-3 rounded-full bg-coral"></span>
+    <span class="size-3 rounded-full bg-sun"></span>
+    <span class="size-3 rounded-full bg-mint"></span>
+    <span class="mx-auto rounded-full bg-cream px-4 py-1 text-xs text-ink-soft">diariamente.es/pacientes</span>
+  </div>
+
+  <div class="grid md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <div class="border-line p-4 md:border-r">
+      <div class="mb-3 flex items-center justify-between">
+        <p class="flex items-center gap-2 font-display text-lg"><Users size={18} /> Mis pacientes</p>
+        <span class="grid size-8 place-items-center rounded-full bg-cream"><Search size={15} /></span>
+      </div>
+      <ul class="space-y-1">
+        {patients.map((patient) => <PatientRow {...patient} />)}
+      </ul>
+    </div>
+
+    <div class="hidden bg-cream/60 p-5 md:block">
+      <div class="mb-4 flex items-start justify-between gap-3">
+        <div>
+          <p class="text-xs text-ink-soft">Martes 21 oct · 19:40</p>
+          <p class="font-display text-xl">Laura Martín</p>
+        </div>
+        <span class="rounded-full bg-coral-soft px-3 py-1 text-xs font-bold text-[#c42a3a]">Intensidad alta</span>
+      </div>
+
+      <div class="space-y-3 rounded-2xl bg-white p-4 text-sm">
+        <div>
+          <p class="mb-0.5 flex items-center gap-1.5 text-xs font-bold text-ink-soft"><BookOpen size={13} /> Situación</p>
+          <p>Reunión con mi jefa: me pidió rehacer el informe delante de todo el equipo.</p>
+        </div>
+        <div>
+          <p class="mb-0.5 text-xs font-bold text-ink-soft">Pensamientos</p>
+          <p>"Van a pensar que no valgo para este puesto."</p>
+        </div>
+        <div>
+          <p class="mb-0.5 text-xs font-bold text-ink-soft">Conducta</p>
+          <p>Me quedé callada y me fui antes de la oficina.</p>
+        </div>
+      </div>
+
+      <div class="mt-3 space-y-2 rounded-2xl bg-white p-4">
+        <EmotionBar label="Ansiedad" value={8} tone="coral" />
+      </div>
+
+      <p class="mt-3 flex items-center gap-2 text-xs text-ink-soft"><Bell size={13} /> Marcado como revisado al abrirlo</p>
+    </div>
+  </div>
+</div>

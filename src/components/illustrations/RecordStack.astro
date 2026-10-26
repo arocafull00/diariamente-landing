@@ -1,0 +1,22 @@
+---
+import { Clock } from "@lucide/astro";
+---
+
+<div class="relative">
+  <div class="card absolute inset-x-6 -top-5 h-24 rotate-[-4deg] opacity-70"></div>
+  <div class="card absolute inset-x-3 -top-2.5 h-24 rotate-[2deg] opacity-85"></div>
+  <div class="card relative p-5">
+    <div class="mb-3 flex items-center justify-between">
+      <span class="flex items-center gap-1.5 text-xs text-ink-soft"><Clock size={13} /> Hoy · 19:40</span>
+      <span class="rounded-full bg-coral px-2.5 py-0.5 text-[0.7rem] font-bold">Nuevo</span>
+    </div>
+    <p class="mb-1 text-xs font-bold text-ink-soft">Situación</p>
+    <p class="mb-3 text-sm">Discusión con mi pareja por la organización de la semana.</p>
+    <p class="mb-1 text-xs font-bold text-ink-soft">Pensamiento</p>
+    <p class="mb-4 text-sm">"Siempre me toca a mí ceder."</p>
+    <div class="flex flex-wrap gap-1.5">
+      <span class="rounded-full bg-coral-soft px-2.5 py-1 text-xs font-bold text-[#c42a3a]">Rabia 7</span>
+      <span class="rounded-full bg-lila-soft px-2.5 py-1 text-xs font-bold text-violet-deep">En casa · En pareja</span>
+    </div>
+  </div>
+</div>

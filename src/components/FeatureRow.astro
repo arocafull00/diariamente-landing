@@ -1,0 +1,28 @@
+---
+interface Props {
+  tone: "coral" | "sky" | "sun" | "mint";
+  title: string;
+  text: string;
+  reverse?: boolean;
+}
+
+const { tone, title, text, reverse = false } = Astro.props;
+
+const panel = { coral: "bg-coral-soft", sky: "bg-sky-soft", sun: "bg-sun-soft", mint: "bg-mint-soft" }[tone];
+---
+
+<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+  <div
+    class:list={["flex min-h-[20rem] items-center justify-center rounded-[var(--radius-card)] px-6 py-12 sm:min-h-[26rem]", panel, reverse && "md:order-2"]}
+    data-reveal
+  >
+    <div class="w-full max-w-sm">
+      <slot />
+    </div>
+  </div>
+
+  <div class:list={["px-2 py-4 sm:px-6 md:max-w-lg", reverse ? "md:justify-self-start" : "md:justify-self-end"]} data-reveal>
+    <h3 class="display-md">{title}</h3>
+    <p class="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">{text}</p>
+  </div>
+</div>

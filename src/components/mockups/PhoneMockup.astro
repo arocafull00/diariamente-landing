@@ -1,0 +1,37 @@
+---
+import { ChevronLeft } from "@lucide/astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "w-[15.5rem] rounded-[2.6rem] bg-ink p-2.5 text-left shadow-[0_40px_80px_-30px_#2e2a3599]",
+    className,
+  ]}
+>
+  <div class="relative overflow-hidden rounded-[2.1rem] bg-white text-ink">
+    <div class="mx-auto mt-2 h-5 w-20 rounded-full bg-ink"></div>
+    <div class="px-4 pt-3 pb-5">
+      <div class="mb-3 flex items-center gap-2 text-sm">
+        <ChevronLeft size={16} />
+        <span class="font-bold">Mi registro</span>
+      </div>
+      <div class="rounded-2xl bg-lila-soft p-4">
+        <p class="text-xs text-violet-deep">Cómo me siento</p>
+        <p class="mt-1 font-display text-2xl">Ansiedad</p>
+        <p class="mt-1 text-sm text-violet-deep">Intensidad · 8 de 10</p>
+      </div>
+      <dl class="mt-5 space-y-4 text-sm">
+        <div><dt class="font-bold">Contexto</dt><dd class="mt-1 text-ink-soft">En el trabajo · Con compañeros</dd></div>
+        <div><dt class="font-bold">En mi cuerpo</dt><dd class="mt-1 text-ink-soft">Tensión en los hombros</dd></div>
+        <div><dt class="font-bold">Qué ha pasado</dt><dd class="mt-1 text-ink-soft">Me han pedido presentar el informe al equipo.</dd></div>
+      </dl>
+      <p class="mt-5 border-t border-line pt-3 text-xs text-ink-soft">Ejemplo con datos ficticios</p>
+    </div>
+  </div>
+</div>

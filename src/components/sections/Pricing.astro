@@ -1,0 +1,73 @@
+---
+import { Check, Clock } from "@lucide/astro";
+import Button from "../Button.astro";
+import { SITE } from "../../lib/site";
+
+const psychologistFeatures = [
+  "Pacientes ilimitados",
+  "Emociones, contexto, sensaciones y reflexión TCC",
+  "Avisos de registros sin revisar",
+  "Historial y resumen desde la última sesión",
+  "Notas privadas del psicólogo",
+  "Invitaciones por código o enlace",
+  "Recordatorios para tus pacientes",
+];
+
+const clinicFeatures = [
+  "Todo lo del plan por psicólogo",
+  "Precio por volumen para tu equipo",
+  "Acompañamiento en la puesta en marcha",
+  "Facturación única para la clínica",
+];
+---
+
+<section id="precios" class="bg-cream py-24 sm:py-32">
+  <div class="shell">
+    <div class="mx-auto mb-14 max-w-3xl text-center" data-reveal>
+      <h2 class="display-lg">Un precio por psicólogo</h2>
+    </div>
+
+    <div class="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
+      <article class="card flex flex-col p-8 ring-2 ring-violet sm:p-10" data-reveal>
+        <h3 class="mb-6 font-display text-2xl tracking-tight">Por psicólogo</h3>
+        <p class="flex items-end gap-2">
+          <span class="font-display text-6xl tracking-tight">{SITE.pricePerPsychologist} €</span>
+          <span class="mb-2 text-ink-soft">/ mes</span>
+        </p>
+        <p class="mt-2 text-sm font-bold text-[#157a43]">Gratis para todos tus pacientes</p>
+        <ul class="mt-8 mb-10 space-y-3">
+          {
+            psychologistFeatures.map((feature) => (
+              <li class="flex gap-3">
+                <Check size={19} class="mt-0.5 shrink-0 text-violet" />
+                {feature}
+              </li>
+            ))
+          }
+        </ul>
+        <Button href="#demo" class="mt-auto justify-center">Ver DiariaMente en acción</Button>
+      </article>
+
+      <article class="card flex flex-col bg-violet-deep p-8 text-white sm:p-10" data-reveal style="--delay: 100ms">
+        <h3 class="mb-6 font-display text-2xl tracking-tight">Clínicas</h3>
+        <p class="font-display text-5xl tracking-tight">A medida</p>
+        <p class="mt-3 text-white/85">Cuéntanos cuántos psicólogos sois y acordamos una propuesta para tu equipo.</p>
+        <ul class="mt-8 mb-6 space-y-3">
+          {
+            clinicFeatures.map((feature) => (
+              <li class="flex gap-3">
+                <Check size={19} class="mt-0.5 shrink-0 text-sun" />
+                {feature}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mb-10 flex items-start gap-2 rounded-2xl bg-white/[0.08] p-4 text-sm text-white/90">
+          <Clock size={16} class="mt-0.5 shrink-0 text-sun" />
+          Próximamente: panel de clínica para ver la actividad de todo tu equipo en un solo lugar.
+        </p>
+        <Button href="#demo" variant="sun" class="mt-auto justify-center" data-plan="clinica">Pedir demo para mi equipo</Button>
+      </article>
+    </div>
+  </div>
+</section>

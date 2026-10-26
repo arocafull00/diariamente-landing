@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import persona from "../../assets/persona.png";
+import { ArrowRight } from "@lucide/astro";
+---
+
+<section class="relative -mt-12 rounded-t-[var(--radius-section)] bg-cream pt-20 pb-24 sm:pt-28 sm:pb-32">
+  <div class="shell grid items-center gap-12 md:grid-cols-[1.1fr_0.9fr]">
+    <div data-reveal>
+      <h2 class="display-md max-w-xl">La semana de tu paciente, más allá de lo que recuerda en consulta</h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">DiariaMente recoge lo que vive cuando ocurre. Antes de la sesión, puedes revisar sus registros y decidir qué abordar juntos.</p>
+      <a href="#como-funciona" class="text-link mt-7">Ver cómo es un registro <ArrowRight size={17} aria-hidden="true" /></a>
+    </div>
+
+    <div class="mx-auto w-full max-w-md" data-reveal style="--delay: 120ms">
+      <Image
+        src={persona}
+        alt="Ilustración de una paciente saludando desde su portátil"
+        width={520}
+        widths={[320, 520]}
+        sizes="(min-width: 768px) 28rem, 90vw"
+        class="w-full"
+      />
+    </div>
+  </div>
+</section>

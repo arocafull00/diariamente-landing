@@ -1,0 +1,29 @@
+# DiariaMente
+
+> DiariaMente es una aplicación web instalable de seguimiento entre sesiones para terapia cognitivo-conductual (TCC), pensada para psicólogos y clínicas. El paciente registra cómo se siente y puede añadir intensidad, contexto, sensaciones corporales y una reflexión sobre la situación, sus pensamientos y su conducta.
+
+El psicólogo vinculado puede revisar los registros, añadir notas privadas y consultar un resumen desde la última sesión: emociones frecuentes, contextos repetidos y picos de intensidad. El paciente puede desvincularse cuando quiera. Las notificaciones no muestran el contenido de los registros.
+
+No sustituye la terapia, no diagnostica y no es un servicio de urgencias.
+
+## Precio
+
+- 14,99 € al mes por psicólogo, con pacientes ilimitados.
+- Gratis para los pacientes.
+- Precio a medida para clínicas con varios psicólogos (contacto mediante el formulario de demo).
+
+## Páginas clave
+
+- [Inicio](https://info.diariamente.es/): presentación del producto para clínicas.
+- [Cómo funciona](https://info.diariamente.es/#como-funciona): del registro emocional rápido a la reflexión con contexto.
+- [Para tu clínica](https://info.diariamente.es/#psicologo): lo que ve el psicólogo.
+- [Precios](https://info.diariamente.es/#precios)
+- [Preguntas frecuentes](https://info.diariamente.es/#faq)
+- [Solicitar demo](https://info.diariamente.es/#demo)
+- [Aplicación](https://diariamente.es): acceso para pacientes y psicólogos.
+- [Privacidad](https://diariamente.es/privacidad)
+- [Sitemap](https://info.diariamente.es/sitemap.xml)
+
+## Disponibilidad
+
+El panel conjunto de clínica se presenta como una función próxima, no como disponible. Los ejemplos de la landing contienen datos ficticios.

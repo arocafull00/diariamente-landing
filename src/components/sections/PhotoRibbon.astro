@@ -1,0 +1,17 @@
+---
+const photo = "https://images.unsplash.com/photo-1758273241078-8eec353836be";
+---
+
+<section class="px-3 sm:px-4">
+  <div class="relative mx-auto aspect-[4/5] max-w-[90rem] overflow-hidden rounded-[var(--radius-section)] sm:aspect-[16/9]" data-reveal>
+    <img
+      src={`${photo}?w=1600&q=70&auto=format&fit=crop`}
+      srcset={`${photo}?w=800&q=70&auto=format&fit=crop 800w, ${photo}?w=1600&q=70&auto=format&fit=crop 1600w, ${photo}?w=2400&q=70&auto=format&fit=crop 2400w`}
+      sizes="100vw"
+      alt="Una psicóloga conversa con su paciente en consulta"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 size-full object-cover"
+    />
+  </div>
+</section>

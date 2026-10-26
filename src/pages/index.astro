@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Intro from "../components/sections/Intro.astro";
+import Features from "../components/sections/Features.astro";
+import PatientJourney from "../components/sections/PatientJourney.astro";
+import Rollout from "../components/sections/Rollout.astro";
+import PhotoRibbon from "../components/sections/PhotoRibbon.astro";
+import Pricing from "../components/sections/Pricing.astro";
+import Faq from "../components/sections/Faq.astro";
+import DemoCta from "../components/sections/DemoCta.astro";
+import { SITE } from "../lib/site";
+---
+
+<Layout title="DiariaMente · Seguimiento TCC para psicólogos y clínicas" description={SITE.description}>
+  <main id="contenido" tabindex="-1">
+    <Hero />
+    <Intro />
+    <Features />
+    <div class="bg-cream px-3 sm:px-4"><PatientJourney /></div>
+    <Rollout />
+    <PhotoRibbon />
+    <Pricing />
+    <Faq />
+    <DemoCta />
+  </main>
+</Layout>

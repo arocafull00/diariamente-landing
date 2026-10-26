@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string;
+  label: string;
+  optional?: boolean;
+  class?: string;
+}
+
+const { name, label, optional = false, class: className } = Astro.props;
+---
+
+<label class:list={["flex flex-col gap-1.5", className]}>
+  <span class="text-sm font-bold">
+    {label}
+    {optional && <span class="font-medium text-ink-soft"> (opcional)</span>}
+  </span>
+  <slot />
+  <span id={`${name}-error`} class="hidden text-sm font-bold text-[#c42a3a]" data-error-for={name}></span>
+</label>

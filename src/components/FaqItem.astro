@@ -1,0 +1,20 @@
+---
+import { Plus } from "@lucide/astro";
+
+interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<details class="faq-item group" name="preguntas">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 text-lg font-bold [&::-webkit-details-marker]:hidden">
+    {question}
+    <span class="faq-icon grid size-9 shrink-0 place-items-center rounded-full bg-lila-soft group-open:rotate-45" aria-hidden="true">
+      <Plus size={18} />
+    </span>
+  </summary>
+  <div class="faq-answer"><p class="px-6 pb-6 leading-relaxed text-ink-soft">{answer}</p></div>
+</details>

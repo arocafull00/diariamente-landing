@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import { ArrowRight } from "@lucide/astro";
+import logo from "../../assets/logo-mark.png";
+import Button from "../Button.astro";
+import DashboardMockup from "../mockups/DashboardMockup.astro";
+import PhoneMockup from "../mockups/PhoneMockup.astro";
+---
+
+<section class="relative overflow-hidden bg-lila pt-32 pb-40 sm:pt-40 md:pb-56">
+  <div class="shell relative text-center">
+    <h1 class="display-xl mx-auto max-w-5xl" data-reveal>
+      Llega a cada sesión <span class="text-violet-deep">con más contexto</span>
+    </h1>
+    <p class="lead mx-auto mt-12 max-w-2xl text-ink/80" data-reveal style="--delay: 160ms">
+      Tus pacientes registran emociones, pensamientos y situaciones. Tu equipo revisa lo que ha ocurrido entre consultas.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-3" data-reveal style="--delay: 240ms">
+      <Button href="#demo">Ver DiariaMente en acción</Button>
+      <a href="#precios" class="text-link px-3 py-3">Ver precios <ArrowRight size={17} aria-hidden="true" /></a>
+    </div>
+  </div>
+
+  <div class="shell relative mt-16 sm:mt-20" data-reveal style="--delay: 320ms">
+    <div class="relative mx-auto max-w-5xl">
+      <DashboardMockup />
+      <PhoneMockup class="absolute -bottom-24 -left-3 hidden origin-bottom-left scale-90 -rotate-3 lg:block xl:-left-16" />
+      <div class="float absolute -top-16 -left-4 hidden size-28 rounded-full bg-white p-2 shadow-[0_20px_40px_-16px_#2e2a3566] sm:block lg:-left-12 lg:size-36">
+        <Image src={logo} alt="Nutria, la mascota de DiariaMente" width={144} height={144} class="size-full" />
+      </div>
+    </div>
+    <p class="mt-8 text-center text-xs text-ink-soft lg:mt-10">Vista ilustrativa de la app con datos ficticios.</p>
+  </div>
+</section>

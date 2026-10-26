@@ -1,0 +1,40 @@
+---
+import FaqItem from "../FaqItem.astro";
+import { SITE } from "../../lib/site";
+
+const faqs = [
+  {
+    q: "¿DiariaMente sustituye a la terapia?",
+    a: "No. Es una herramienta de seguimiento entre sesiones. No diagnostica, no da recomendaciones terapéuticas automáticas y no es un servicio de urgencias. El criterio clínico es siempre de tu equipo.",
+  },
+  {
+    q: "¿Cuánto cuesta?",
+    a: `${SITE.pricePerPsychologist} € al mes por psicólogo, con pacientes ilimitados y acceso gratuito para pacientes. Para equipos, puedes pedir una propuesta a medida en el formulario de demo.`,
+  },
+  {
+    q: "¿Mis pacientes tienen que descargar algo?",
+    a: "No hace falta pasar por ninguna tienda de apps. DiariaMente funciona en el navegador y se puede instalar en el móvil, la tablet o el ordenador como una app más.",
+  },
+  {
+    q: "¿Quién puede ver los registros de un paciente?",
+    a: "El paciente y su psicólogo vinculado. El paciente puede desvincularse cuando quiera y el profesional deja de tener acceso. Las notificaciones no incluyen el contenido de los registros.",
+  },
+  {
+    q: "¿Se puede usar con varios psicólogos en la misma clínica?",
+    a: "Sí. Cada psicólogo tiene su cuenta y gestiona a sus propios pacientes. Estamos preparando un panel de clínica para ver la actividad de todo el equipo desde un mismo sitio.",
+  },
+  {
+    q: "¿Qué pasa con los datos si un paciente deja la terapia?",
+    a: "El paciente puede desvincularse cuando quiera y solicitar la eliminación de su cuenta. En ese caso se borran sus datos de forma coordinada.",
+  },
+];
+---
+
+<section id="faq" class="bg-cream pb-24 sm:pb-32">
+  <div class="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+    <h2 class="display-lg" data-reveal>Preguntas frecuentes</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => <FaqItem question={faq.q} answer={faq.a} />)}
+    </div>
+  </div>
+</section>
