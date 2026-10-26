@@ -1,6 +1,8 @@
 ---
 import { Check, Clock } from "@lucide/astro";
 import Button from "../Button.astro";
+import Animo from "../illustrations/Animo.astro";
+import Sparkle from "../illustrations/Sparkle.astro";
 import { SITE } from "../../lib/site";
 
 const psychologistFeatures = [
@@ -24,22 +26,24 @@ const clinicFeatures = [
 <section id="precios" class="bg-cream py-24 sm:py-32">
   <div class="shell">
     <div class="mx-auto mb-14 max-w-3xl text-center">
-      <h2 class="display-lg" data-split>Un precio por psicólogo</h2>
+      <h2 class="display-lg" data-split>Un precio por <em class="font-semibold text-[#d23a4c]">psicólogo</em></h2>
     </div>
 
     <div class="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
-      <article class="card flex flex-col p-8 ring-2 ring-sol sm:p-10" data-reveal="left" data-tilt="4">
+      <article class="card relative flex flex-col p-8 ring-4 ring-coral sm:p-10" data-reveal="left" data-tilt="4">
+        <Animo tone="coral" face="emocionada" class="-top-9 right-6 size-16 sm:size-20" />
+        <Sparkle class="absolute -top-4 right-28 size-6 text-sun" />
         <h3 class="mb-6 font-display text-2xl tracking-tight">Por psicólogo</h3>
         <p class="flex items-end gap-2">
           <span class="font-display text-6xl tracking-tight tabular-nums" data-count={SITE.priceAmount} data-suffix=" €">{SITE.pricePerPsychologist} €</span>
           <span class="mb-2 text-ink-soft">/ mes</span>
         </p>
-        <p class="mt-2 text-sm font-bold text-[#157a43]">Gratis para todos tus pacientes</p>
+        <p class="mt-3 w-fit rounded-full bg-mint-soft px-3 py-1 text-sm font-bold text-[#157a43]">Gratis para todos tus pacientes</p>
         <ul class="mt-8 mb-10 space-y-3" data-stagger style="--delay: 300ms">
           {
             psychologistFeatures.map((feature) => (
               <li class="flex gap-3">
-                <Check size={19} class="mt-0.5 shrink-0 text-pizarra" />
+                <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-coral"><Check size={13} stroke-width={3} /></span>
                 {feature}
               </li>
             ))
@@ -48,25 +52,26 @@ const clinicFeatures = [
         <Button href="#demo" class="mt-auto justify-center">Ver Diariamente en acción</Button>
       </article>
 
-      <article class="card flex flex-col bg-ink p-8 text-white sm:p-10" data-reveal="right" data-tilt="4" style="--delay: 100ms">
-        <h3 class="mb-6 font-display text-2xl tracking-tight">Clínicas</h3>
-        <p class="font-display text-5xl tracking-tight">A medida</p>
-        <p class="mt-3 text-white/85">Cuéntanos cuántos psicólogos sois y acordamos una propuesta para tu equipo.</p>
-        <ul class="mt-8 mb-6 space-y-3" data-stagger style="--delay: 400ms">
+      <article class="card relative flex flex-col overflow-hidden bg-sky p-8 sm:p-10" data-reveal="right" data-tilt="4" style="--delay: 100ms; --card-glow: #2953b866">
+        <span class="pointer-events-none absolute -right-20 -bottom-20 size-64 rounded-full bg-sky-light" aria-hidden="true"></span>
+        <h3 class="relative mb-6 font-display text-2xl tracking-tight">Clínicas</h3>
+        <p class="relative font-display text-5xl tracking-tight">A medida</p>
+        <p class="relative mt-3 text-ink/80">Cuéntanos cuántos psicólogos sois y acordamos una propuesta para tu equipo.</p>
+        <ul class="relative mt-8 mb-6 space-y-3" data-stagger style="--delay: 400ms">
           {
             clinicFeatures.map((feature) => (
               <li class="flex gap-3">
-                <Check size={19} class="mt-0.5 shrink-0 text-sun" />
+                <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-white"><Check size={13} stroke-width={3} /></span>
                 {feature}
               </li>
             ))
           }
         </ul>
-        <p class="mb-10 flex items-start gap-2 rounded-2xl bg-white/[0.08] p-4 text-sm text-white/90">
-          <Clock size={16} class="mt-0.5 shrink-0 text-sun" />
+        <p class="relative mb-10 flex items-start gap-2 rounded-2xl bg-white/60 p-4 text-sm">
+          <Clock size={16} class="mt-0.5 shrink-0" />
           Próximamente: panel de clínica para ver la actividad de todo tu equipo en un solo lugar.
         </p>
-        <Button href="#demo" variant="sun" class="mt-auto justify-center" data-plan="clinica">Pedir demo para mi equipo</Button>
+        <Button href="#demo" variant="light" class="relative mt-auto justify-center" data-plan="clinica">Pedir demo para mi equipo</Button>
       </article>
     </div>
   </div>

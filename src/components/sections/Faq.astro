@@ -1,5 +1,7 @@
 ---
 import FaqItem from "../FaqItem.astro";
+import Animo from "../illustrations/Animo.astro";
+import Sparkle from "../illustrations/Sparkle.astro";
 import { SITE } from "../../lib/site";
 
 const faqs = [
@@ -32,7 +34,14 @@ const faqs = [
 
 <section id="faq" class="bg-cream pb-24 sm:pb-32">
   <div class="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-    <h2 class="display-lg" data-split>Preguntas frecuentes</h2>
+    <div class="relative">
+      <h2 class="display-lg" data-split>Preguntas <em class="font-semibold text-[#d23a4c]">frecuentes</em></h2>
+      <div class="relative mt-10 hidden h-48 lg:block">
+        <Animo tone="sun" face="sorprendida" label="¿Y si…?" class="top-0 left-4 size-24" />
+        <Animo tone="sky" face="tranquila" class="top-20 left-40 size-16" />
+        <Sparkle class="absolute top-2 left-36 size-6 text-coral" />
+      </div>
+    </div>
     <div class="space-y-3" data-stagger>
       {faqs.map((faq) => <FaqItem question={faq.q} answer={faq.a} />)}
     </div>

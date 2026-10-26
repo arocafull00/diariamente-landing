@@ -1,18 +1,20 @@
 ---
+import NumberBlob from "./illustrations/NumberBlob.astro";
+
 interface Props {
   index: number;
   title: string;
   text: string;
-  tone: string;
+  tone: "coral" | "sun" | "mint" | "sky";
 }
 
 const { index, title, text, tone } = Astro.props;
 ---
 
-<li class="flex gap-4 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10" data-lift data-wiggle>
-  <span data-wiggle-target class:list={["grid size-9 shrink-0 place-items-center rounded-full font-bold text-ink", tone]}>{index}</span>
+<li class="card flex gap-4 p-4" style="--card-glow: #9c2f2466" data-lift data-wiggle>
+  <span data-wiggle-target><NumberBlob tone={tone === "coral" ? "sun" : tone} class="size-11 text-lg">{index}</NumberBlob></span>
   <span>
     <span class="block font-bold">{title}</span>
-    <span class="mt-1 block text-sm leading-relaxed text-white/85">{text}</span>
+    <span class="mt-1 block text-sm leading-relaxed text-ink-soft">{text}</span>
   </span>
 </li>

@@ -1,14 +1,19 @@
 ---
 import RolloutStep from "../RolloutStep.astro";
+import Sparkle from "../illustrations/Sparkle.astro";
 ---
 
-<section class="bg-white py-24 sm:py-32">
-  <div class="shell">
-    <h2 class="display-lg mb-14 max-w-3xl" data-split>Cómo empezar</h2>
-    <ol class="grid gap-10 md:grid-cols-3 md:gap-8" data-stagger>
-      <RolloutStep index={1} title="Mira cómo encaja" text="Revisamos contigo el registro del paciente y la vista del psicólogo en una demo sin compromiso." />
-      <RolloutStep index={2} title="Crea las cuentas del equipo" text="Cada psicólogo tiene su propio acceso y gestiona a sus pacientes." />
-      <RolloutStep index={3} title="Vincula a tus pacientes" text="Comparte una invitación. Tras aceptar la vinculación, puedes consultar sus registros." />
+<section class="relative overflow-hidden bg-white py-24 sm:py-32">
+  <div class="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-mint-soft" aria-hidden="true"></div>
+  <div class="shell relative">
+    <div class="relative mb-14 max-w-3xl">
+      <h2 class="display-lg" data-split>Cómo <em class="font-semibold text-[#d23a4c]">empezar</em></h2>
+      <Sparkle class="absolute -top-6 left-[60%] size-6 text-sun sm:left-[32rem]" />
+    </div>
+    <ol class="grid gap-4 md:grid-cols-3 md:gap-5" data-stagger>
+      <RolloutStep index={1} tone="coral" title="Mira cómo encaja" text="Revisamos contigo el registro del paciente y la vista del psicólogo en una demo sin compromiso." />
+      <RolloutStep index={2} tone="sun" title="Crea las cuentas del equipo" text="Cada psicólogo tiene su propio acceso y gestiona a sus pacientes." />
+      <RolloutStep index={3} tone="sky" title="Vincula a tus pacientes" text="Comparte una invitación. Tras aceptar la vinculación, puedes consultar sus registros." />
     </ol>
   </div>
 </section>

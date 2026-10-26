@@ -1,15 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
-import symbol from "../assets/diariamente-simbolo-color.svg";
+import Animo from "../components/illustrations/Animo.astro";
+import Sparkle from "../components/illustrations/Sparkle.astro";
 ---
 
 <Layout title="Página no encontrada · Diariamente" description="La página que buscas no existe. Vuelve al inicio de Diariamente." noindex>
-  <main id="contenido" tabindex="-1" class="relative grid min-h-svh place-items-center overflow-hidden bg-sol-soft px-4 pt-28 pb-20 text-center">
+  <main id="contenido" tabindex="-1" class="relative grid min-h-svh place-items-center overflow-hidden bg-sky-soft px-4 pt-28 pb-20 text-center">
     <div class="relative max-w-xl">
-      <div class="float mx-auto mb-8 size-32 rounded-full bg-white p-5 shadow-[0_20px_40px_-16px_#25282c66]">
-        <Image src={symbol} alt="" width={128} height={128} class="size-full" />
+      <div class="relative mx-auto mb-12 size-32">
+        <Animo tone="sky" face="sorprendida" label="¿Perdida?" class="inset-0" />
+        <Sparkle class="absolute -top-4 -right-8 size-7 text-sun" />
       </div>
       <p class="font-display text-8xl tracking-tight">404</p>
       <h1 class="display-md mt-4">Esta página se ha perdido entre sesiones</h1>

@@ -1,5 +1,5 @@
 ---
-import { BellRing, Smartphone } from "@lucide/astro";
+import { BellRing, Check, Smartphone } from "@lucide/astro";
 import FeatureRow from "../FeatureRow.astro";
 import RecordStack from "../illustrations/RecordStack.astro";
 import SessionSummary from "../illustrations/SessionSummary.astro";
@@ -14,7 +14,7 @@ const privacyItems = [
 
 <section id="psicologo" class="relative bg-cream pb-24 sm:pb-32">
   <div class="shell">
-    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-split>Prepara la sesión con lo que ya ha pasado</h2>
+    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-split>Prepara la sesión con lo que ya <em class="font-semibold text-[#d23a4c]">ha pasado</em></h2>
 
     <div class="space-y-20 sm:space-y-28">
       <FeatureRow
@@ -41,14 +41,14 @@ const privacyItems = [
       >
         <div class="space-y-3" data-stagger style="--delay: 250ms">
           <div class="card flex items-center gap-3 p-4" data-wiggle>
-            <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-sun" data-wiggle-target><BellRing size={20} /></span>
+            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-coral" data-wiggle-target><BellRing size={20} /></span>
             <div class="text-sm">
               <p class="font-bold">Diariamente · ahora</p>
               <p class="text-ink-soft">¿Cómo ha ido tu día? Tómate un momento para registrarlo.</p>
             </div>
           </div>
           <div class="card ml-8 flex items-center gap-3 p-4" data-lift>
-            <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-sand"><Smartphone size={20} /></span>
+            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-mint"><Smartphone size={20} /></span>
             <div class="text-sm">
               <p class="font-bold">Instalada en el móvil</p>
               <p class="text-ink-soft">Funciona en iPhone, Android y ordenador.</p>
@@ -64,7 +64,7 @@ const privacyItems = [
         text="Cada profesional accede a los registros de sus pacientes vinculados. El paciente puede desvincularse y dejar de compartirlos cuando quiera."
       >
         <ul class="card divide-y divide-line px-6 text-[0.95rem]" data-stagger style="--delay: 250ms">
-          {privacyItems.map((item) => <li class="py-4" data-nudge>{item}</li>)}
+          {privacyItems.map((item) => <li class="flex items-center gap-3 py-4" data-nudge><span class="grid size-6 shrink-0 place-items-center rounded-full bg-mint"><Check size={14} stroke-width={3} /></span>{item}</li>)}
         </ul>
       </FeatureRow>
     </div>

@@ -80,13 +80,20 @@ const reveals = () => {
     inView(pops[0], () => void animate(pops, { opacity: [0, 1], scale: [0.4, 1] }, { type: spring, bounce: 0.55, visualDuration: 0.5, delay: stagger(0.12, { startDelay: 0.9 }) }));
   }
 
-  const animos = all("[data-animo]");
-  if (animos.length) {
-    animate(
-      animos,
-      { opacity: [0, 1], scale: [0.2, 1], rotate: [-25, 0] },
-      { type: spring, bounce: 0.6, visualDuration: 0.6, delay: stagger(0.09, { startDelay: 0.35, from: "center" }) },
-    );
+  const animoGroups = new Map<HTMLElement, HTMLElement[]>();
+  for (const el of all("[data-animo]")) {
+    const group = el.closest<HTMLElement>("section, footer, main") ?? document.body;
+    animoGroups.set(group, [...(animoGroups.get(group) ?? []), el]);
+  }
+  for (const [group, animos] of animoGroups) {
+    const pop = () =>
+      void animate(
+        animos,
+        { opacity: [0, 1], scale: [0.2, 1], rotate: [-25, 0] },
+        { type: spring, bounce: 0.6, visualDuration: 0.6, delay: stagger(0.09, { startDelay: group.matches("[data-hero]") ? 0.35 : 0.1, from: "center" }) },
+      );
+    if (group.matches("[data-hero]")) pop();
+    else inView(group, pop, { amount: 0.15 });
   }
 
   for (const el of all("[data-draw]")) {
@@ -183,27 +190,21 @@ const tilt = (el: HTMLElement, strength: number) => {
   el.addEventListener("pointerleave", () => void animate(el, { rotateY: 0, rotateX: 0 }, { type: spring, bounce: 0.4, visualDuration: 0.6 }));
 };
 
-const magnetic = (el: HTMLElement) => {
+const spotlight = (el: HTMLElement) => {
   el.addEventListener("pointermove", (event) => {
     const rect = el.getBoundingClientRect();
-    const dx = event.clientX - (rect.left + rect.width / 2);
-    const dy = event.clientY - (rect.top + rect.height / 2);
-    animate(el, { x: dx * 0.18, y: dy * 0.3 }, snappy);
+    el.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${event.clientY - rect.top}px`);
   });
-  el.addEventListener("pointerleave", () => void animate(el, { x: 0, y: 0 }, { type: spring, bounce: 0.5, visualDuration: 0.5 }));
 };
 
 const microInteractions = () => {
   for (const el of all(".btn")) {
-    hover(el, () => {
-      animate(el, { scale: 1.04 }, snappy);
-      return () => void animate(el, { scale: 1 }, snappy);
-    });
     press(el, () => {
-      animate(el, { scale: 0.95 }, { type: spring, stiffness: 600, damping: 25 });
-      return () => void animate(el, { scale: 1 }, { type: spring, bounce: 0.6, visualDuration: 0.4 });
+      animate(el, { scale: 0.97 }, { type: spring, stiffness: 600, damping: 25 });
+      return () => void animate(el, { scale: 1 }, { type: spring, bounce: 0.5, visualDuration: 0.35 });
     });
-    if (finePointer) magnetic(el);
+    if (finePointer) spotlight(el);
   }
 
   if (finePointer) for (const el of all("[data-tilt]")) tilt(el, Number(el.dataset.tilt) || 8);
@@ -215,10 +216,9 @@ const microInteractions = () => {
     });
   }
 
-  const hero = document.querySelector<HTMLElement>("[data-hero]");
-  const bodies = all("[data-hero] .animo-body");
-  if (finePointer && hero && bodies.length) {
-    hero.addEventListener("pointermove", (event) => {
+  for (const field of finePointer ? all("[data-animo-field]") : []) {
+    const bodies = all(".animo-body", field);
+    field.addEventListener("pointermove", (event) => {
       for (const el of bodies) {
         const rect = el.getBoundingClientRect();
         const dx = rect.left + rect.width / 2 - event.clientX;
@@ -228,7 +228,7 @@ const microInteractions = () => {
         animate(el, { x: (dx / (distance || 1)) * push, y: (dy / (distance || 1)) * push }, snappy);
       }
     });
-    hero.addEventListener("pointerleave", () => {
+    field.addEventListener("pointerleave", () => {
       for (const el of bodies) animate(el, { x: 0, y: 0 }, { type: spring, bounce: 0.5, visualDuration: 0.6 });
     });
   }

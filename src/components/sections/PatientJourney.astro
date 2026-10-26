@@ -1,21 +1,33 @@
 ---
 import PhoneMockup from "../mockups/PhoneMockup.astro";
 import JourneyStep from "../JourneyStep.astro";
+import Animo from "../illustrations/Animo.astro";
+import Sparkle from "../illustrations/Sparkle.astro";
 
 const steps = [
-  { title: "Cómo se siente", text: "Elige una emoción y su intensidad.", tone: "bg-coral" },
-  { title: "En qué contexto", text: "Indica dónde está, con quién y qué nota en su cuerpo.", tone: "bg-sky" },
-  { title: "Qué ha ocurrido", text: "Puede profundizar en la situación, sus pensamientos y su conducta.", tone: "bg-sun" },
-  { title: "Cuándo ha pasado", text: "Confirma la fecha y guarda el registro.", tone: "bg-mint" },
+  { title: "Cómo se siente", text: "Elige una emoción y su intensidad.", tone: "coral" },
+  { title: "En qué contexto", text: "Indica dónde está, con quién y qué nota en su cuerpo.", tone: "sky" },
+  { title: "Qué ha ocurrido", text: "Puede profundizar en la situación, sus pensamientos y su conducta.", tone: "sun" },
+  { title: "Cuándo ha pasado", text: "Confirma la fecha y guarda el registro.", tone: "mint" },
 ];
 ---
 
-<section id="como-funciona" class="relative overflow-hidden rounded-[var(--radius-section)] bg-ink py-24 text-white sm:py-32" data-scale-in>
-  <div class="shell grid items-center gap-16 lg:grid-cols-[1fr_auto]">
+<section id="como-funciona" class="relative overflow-hidden rounded-[var(--radius-section)] bg-coral py-24 sm:py-32" data-scale-in data-animo-field>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute -top-32 -right-24 size-[28rem] rounded-full bg-coral-light"></div>
+    <div class="absolute -bottom-40 left-[20%] size-[22rem] rounded-full bg-[#ff7d6c]"></div>
+  </div>
+  <div class="pointer-events-none absolute inset-0">
+    <Animo tone="sun" face="emocionada" class="top-10 right-[6%] size-16 sm:top-14 sm:size-20 lg:right-[40%]" />
+    <Animo tone="sky" face="apatica" class="bottom-10 left-[6%] hidden size-16 sm:block lg:left-[3%]" />
+    <Sparkle class="absolute top-[18%] left-[46%] hidden size-7 text-white lg:block" />
+    <Sparkle class="absolute bottom-[14%] right-[8%] size-6 text-sun" style="--twinkle-delay: -1.4s" />
+  </div>
+  <div class="shell relative grid items-center gap-16 lg:grid-cols-[1fr_auto]">
     <div>
       <div data-reveal>
-        <h2 class="display-lg max-w-2xl">Qué registra tu paciente</h2>
-        <p class="lead mt-6 max-w-xl text-white/85">Tu paciente puede guardar una emoción al momento o continuar para contar qué ha pasado.</p>
+        <h2 class="display-lg max-w-2xl">Qué registra tu <em class="font-semibold">paciente</em></h2>
+        <p class="lead mt-6 max-w-xl text-ink/80">Tu paciente puede guardar una emoción al momento o continuar para contar qué ha pasado.</p>
       </div>
       <ol class="mt-12 grid gap-3 sm:grid-cols-2" data-stagger style="--delay: 150ms">
         {steps.map((step, index) => <JourneyStep index={index + 1} {...step} />)}

@@ -1,15 +1,22 @@
 ---
+import NumberBlob from "./illustrations/NumberBlob.astro";
+
 interface Props {
   index: number;
   title: string;
   text: string;
+  tone: "coral" | "sun" | "mint" | "sky";
 }
 
-const { index, title, text } = Astro.props;
+const { index, title, text, tone } = Astro.props;
+
+const fade = { coral: "to-coral-soft", sun: "to-sun-soft", mint: "to-mint-soft", sky: "to-sky-soft" }[tone];
 ---
 
-<li class="relative pt-6" data-lift>
-  <span class="absolute inset-x-0 top-0 h-0.5 bg-ink" data-draw style={`--delay: ${index * 150}ms`}></span>
-  <h3 class="font-display text-2xl tracking-tight"><span class="text-pizarra">{index}.</span> {title}</h3>
-  <p class="mt-3 max-w-sm leading-relaxed text-ink-soft">{text}</p>
+<li class:list={["card relative flex items-start justify-between gap-4 bg-linear-to-r from-white from-40% p-6 sm:p-7", fade]} data-lift>
+  <div>
+    <h3 class="font-display text-2xl tracking-tight">{title}</h3>
+    <p class="mt-3 max-w-sm leading-relaxed text-ink-soft">{text}</p>
+  </div>
+  <NumberBlob tone={tone} class="size-16 text-3xl">{index}</NumberBlob>
 </li>

@@ -1,0 +1,13 @@
+---
+interface Props {
+  tone: "coral" | "sun" | "mint" | "sky";
+  class?: string;
+}
+
+const { tone, class: className } = Astro.props;
+---
+
+<span class:list={["relative grid shrink-0 place-items-center font-display font-semibold text-ink", className]}>
+  <span class:list={["animo-blob absolute inset-0", `animo-${tone}`]} aria-hidden="true"></span>
+  <span class="relative"><slot /></span>
+</span>

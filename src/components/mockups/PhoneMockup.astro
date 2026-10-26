@@ -22,13 +22,16 @@ const { class: className } = Astro.props;
         <ChevronLeft size={16} />
         <span class="font-bold">Mi registro</span>
       </div>
-      <div class="rounded-2xl bg-sand p-4">
-        <p class="text-xs text-pizarra-deep">Cómo me siento</p>
-        <p class="mt-1 font-display text-2xl">Ansiedad</p>
-        <p class="mt-1 text-sm text-pizarra-deep">Intensidad · 8 de 10</p>
+      <div class="relative overflow-hidden rounded-3xl bg-coral-soft p-4">
+        <span class="absolute -top-6 -right-6 size-20 rounded-full bg-coral" aria-hidden="true"></span>
+        <p class="relative font-display text-xl leading-tight font-semibold">Me sentí<br /><em class="text-[#d23a4c]">ansiosa</em></p>
+        <p class="relative mt-2 flex items-center gap-2 text-xs text-ink-soft">
+          Intensidad
+          <span class="relative grid size-7 place-items-center font-display text-sm font-semibold text-ink"><span class="animo-blob animo-coral absolute inset-0" aria-hidden="true"></span><span class="relative">8</span></span>
+        </p>
       </div>
       <dl class="mt-5 space-y-4 text-sm">
-        <div><dt class="font-bold">Contexto</dt><dd class="mt-1 text-ink-soft">En el trabajo · Con compañeros</dd></div>
+        <div><dt class="font-bold">Contexto</dt><dd class="mt-1.5 flex flex-wrap gap-1.5 text-xs"><span class="rounded-full border border-line px-2.5 py-0.5">En el trabajo</span><span class="rounded-full border border-line px-2.5 py-0.5">Compañeros</span></dd></div>
         <div><dt class="font-bold">En mi cuerpo</dt><dd class="mt-1 text-ink-soft">Tensión en los hombros</dd></div>
         <div><dt class="font-bold">Qué ha pasado</dt><dd class="mt-1 text-ink-soft">Me han pedido presentar el informe al equipo.</dd></div>
       </dl>
