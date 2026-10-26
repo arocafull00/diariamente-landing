@@ -1,4 +1,4 @@
-# DiariaMente landing
+# Diariamente landing
 
 ## Register
 
@@ -10,11 +10,11 @@ Psicólogos y responsables de clínicas que valoran una herramienta de seguimien
 
 ## Product Purpose
 
-Presentar DiariaMente y conseguir solicitudes de demo mediante el formulario existente. El precio publicado es 14,99 € al mes por psicólogo, con pacientes ilimitados y acceso gratuito para pacientes.
+Presentar Diariamente y conseguir solicitudes de demo mediante el formulario existente. El precio publicado es 14,99 € al mes por psicólogo, con pacientes ilimitados y acceso gratuito para pacientes.
 
 ## Brand Personality
 
-Cercana, clara y cuidadosa. Conservar la identidad lila, Fraunces, Quicksand, la nutria y las ilustraciones existentes.
+Cercana, clara y cuidadosa: serena y cálida, profesional y fiable. Identidad de marca en `diariamente-marca/` (guía de marca): símbolo de la D con la persona y el sol, logotipo «Diariamente» en Quicksand Bold. Paleta: tinta #25282C, sol #F79A6B, crema #FCF8F2, salvia #7E9686, pizarra #5E8299 y arcilla #E3A792, más los cuatro colores de ánimo de la app (coral, amarillo, verde, azul). Sin ningún tono morado o lila. La nutria está descartada.
 
 ## References and Anti-references
 

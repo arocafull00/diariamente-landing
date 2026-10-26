@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/logo-mark.png";
+import logo from "../assets/diariamente-horizontal-color.svg";
 import { NAV_LINKS, SITE } from "../lib/site";
 
 const year = new Date().getFullYear();
@@ -10,9 +10,8 @@ const year = new Date().getFullYear();
   <div class="shell">
     <div class="flex flex-col gap-10 border-b border-line pb-10 md:flex-row md:items-start md:justify-between">
       <div class="max-w-sm">
-        <a href="/" class="flex items-center gap-2">
-          <Image src={logo} alt="" width={40} height={40} class="size-10" />
-          <span class="font-display text-2xl tracking-tight">DiariaMente</span>
+        <a href="/" class="inline-flex" aria-label="Diariamente, inicio">
+          <Image src={logo} alt="" width={184} height={40} class="h-10 w-auto" />
         </a>
         <p class="mt-4 text-ink-soft">Seguimiento TCC entre sesiones para clínicas de psicología.</p>
       </div>
@@ -24,9 +23,9 @@ const year = new Date().getFullYear();
       </nav>
     </div>
     <div class="flex flex-col gap-3 pt-8 text-sm text-ink-soft md:flex-row md:justify-between">
-      <p>© {year} DiariaMente</p>
+      <p>© {year} Diariamente</p>
       <p class="max-w-xl md:text-right">
-        DiariaMente no sustituye la terapia ni la atención de urgencias. Si estás en crisis, llama al 024 o al 112.
+        Diariamente no sustituye la terapia ni la atención de urgencias. Si estás en crisis, llama al 024 o al 112.
       </p>
     </div>
   </div>

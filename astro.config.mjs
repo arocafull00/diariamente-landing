@@ -14,7 +14,7 @@ export default defineConfig({
       DEMO_FROM_EMAIL: envField.string({
         context: "server",
         access: "secret",
-        default: "DiariaMente <onboarding@resend.dev>",
+        default: "Diariamente <onboarding@resend.dev>",
       }),
     },
   },

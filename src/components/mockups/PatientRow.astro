@@ -14,7 +14,7 @@ const { name, initials, avatar, last, unread, active = false } = Astro.props;
 <li
   class:list={[
     "flex items-center gap-3 rounded-xl px-3 py-2.5",
-    active ? "bg-lila-soft" : "bg-transparent",
+    active ? "bg-sand" : "bg-transparent",
   ]}
 >
   <span class:list={["grid size-9 shrink-0 place-items-center rounded-full text-xs font-bold", avatar]}>{initials}</span>

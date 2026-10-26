@@ -2,7 +2,7 @@
 interface Props {
   label: string;
   value: number;
-  tone: "coral" | "sky" | "sun" | "mint" | "violet";
+  tone: "coral" | "sky" | "sun" | "mint";
 }
 
 const { label, value, tone } = Astro.props;
@@ -12,7 +12,6 @@ const toneClass = {
   sky: "bg-sky",
   sun: "bg-sun",
   mint: "bg-mint",
-  violet: "bg-violet-light",
 }[tone];
 ---
 

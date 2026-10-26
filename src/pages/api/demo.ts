@@ -58,7 +58,7 @@ export const POST: APIRoute = async ({ request }) => {
     from: DEMO_FROM_EMAIL,
     to: DEMO_TO_EMAIL,
     replyTo: parsed.data.email,
-    subject: `Demo DiariaMente · ${parsed.data.clinic}`,
+    subject: `Demo Diariamente · ${parsed.data.clinic}`,
     html,
     text,
   });

@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "DiariaMente",
+  name: "Diariamente",
   url: "https://info.diariamente.es",
   appUrl: "https://diariamente.es",
   loginUrl: "https://diariamente.es/login",

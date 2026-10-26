@@ -229,21 +229,6 @@ const microInteractions = () => {
       };
     });
   }
-
-  const mascot = document.querySelector<HTMLElement>("[data-mascot]");
-  if (mascot) {
-    hover(mascot, () => {
-      animate(mascot, { scale: 1.08, rotate: -8 }, snappy);
-      return () => void animate(mascot, { scale: 1, rotate: 0 }, snappy);
-    });
-    press(mascot, () => {
-      animate(mascot, { scale: 0.88 }, snappy);
-      return () =>
-        void animate(mascot, { scale: [0.88, 1.15, 1], rotate: [0, 360] }, { duration: 0.7, ease: [0.22, 1, 0.36, 1] }).then(
-          () => void animate(mascot, { rotate: 0 }, { duration: 0 }),
-        );
-    });
-  }
 };
 
 if (root.classList.contains("motion")) {

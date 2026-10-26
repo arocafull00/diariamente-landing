@@ -26,7 +26,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
     id: "finalidad",
     title: "Para qué y con qué base legal",
     paragraphs: [
-      "Usamos los datos del formulario para contactarte, organizar la demo y responder a tus preguntas sobre DiariaMente. La base legal es tu consentimiento, que das al marcar la casilla del formulario (art. 6.1.a RGPD), y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD).",
+      "Usamos los datos del formulario para contactarte, organizar la demo y responder a tus preguntas sobre Diariamente. La base legal es tu consentimiento, que das al marcar la casilla del formulario (art. 6.1.a RGPD), y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD).",
       "Usamos las estadísticas de visita para saber qué partes de la web funcionan mejor. La base legal es nuestro interés legítimo en mejorar la web (art. 6.1.f RGPD); no permiten identificarte.",
       "No tomamos decisiones automatizadas ni elaboramos perfiles con estos datos, y no los usamos para enviarte publicidad sin tu permiso.",
     ],
@@ -83,8 +83,8 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
 ---
 
 <Layout
-  title="Política de privacidad · DiariaMente"
-  description="Cómo trata DiariaMente los datos de su web informativa y del formulario de demo: finalidad, conservación, proveedores y tus derechos."
+  title="Política de privacidad · Diariamente"
+  description="Cómo trata Diariamente los datos de su web informativa y del formulario de demo: finalidad, conservación, proveedores y tus derechos."
 >
   <main id="contenido" tabindex="-1" class="bg-cream px-4 pt-32 pb-24 sm:pt-40">
     <article class="mx-auto max-w-3xl">
@@ -100,7 +100,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
             <div class="mt-5 space-y-4 text-lg leading-relaxed text-ink-soft">
               {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
               {section.items && (
-                <ul class="list-disc space-y-2 pl-6 marker:text-violet">
+                <ul class="list-disc space-y-2 pl-6 marker:text-pizarra">
                   {section.items.map((item) => <li>{item}</li>)}
                 </ul>
               )}
