@@ -24,7 +24,7 @@ const { name, initials, avatar, last, unread, active = false } = Astro.props;
   </span>
   {
     unread > 0 && (
-      <span class="rounded-full bg-coral px-2 py-0.5 text-[0.7rem] font-bold whitespace-nowrap">{unread} {unread === 1 ? "nuevo" : "nuevos"}</span>
+      <span data-pop class="rounded-full bg-coral px-2 py-0.5 text-[0.7rem] font-bold whitespace-nowrap">{unread} {unread === 1 ? "nuevo" : "nuevos"}</span>
     )
   }
 </li>

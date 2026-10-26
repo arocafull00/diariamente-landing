@@ -21,7 +21,8 @@ No sustituye la terapia, no diagnostica y no es un servicio de urgencias.
 - [Preguntas frecuentes](https://info.diariamente.es/#faq)
 - [Solicitar demo](https://info.diariamente.es/#demo)
 - [Aplicación](https://diariamente.es): acceso para pacientes y psicólogos.
-- [Privacidad](https://diariamente.es/privacidad)
+- [Privacidad](https://info.diariamente.es/privacidad): datos de la web y del formulario de demo.
+- [Privacidad de la aplicación](https://diariamente.es/privacidad)
 - [Sitemap](https://info.diariamente.es/sitemap.xml)
 
 ## Disponibilidad

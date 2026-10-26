@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../lib/site";
+
+const updated = "26 de octubre de 2026";
+
+const sections: { id: string; title: string; paragraphs: string[]; items?: string[] }[] = [
+  {
+    id: "responsable",
+    title: "Quién es el responsable",
+    paragraphs: [
+      `El responsable del tratamiento es ${SITE.legal.owner}, con NIF ${SITE.legal.taxId} y domicilio en ${SITE.legal.address}. Puedes escribirnos a ${SITE.legal.email} para cualquier cuestión sobre tus datos.`,
+      `Esta política cubre la web informativa ${SITE.url.replace("https://", "")}. El tratamiento de los datos dentro de la aplicación se explica en su propia política, en ${SITE.appUrl.replace("https://", "")}/privacidad.`,
+    ],
+  },
+  {
+    id: "datos",
+    title: "Qué datos tratamos",
+    paragraphs: ["Solo los que nos das al solicitar una demo y datos técnicos mínimos de la visita:"],
+    items: [
+      "Formulario de demo: nombre, clínica o consulta, email, número de psicólogos y, si los indicas, teléfono y mensaje.",
+      "Visita a la web: páginas vistas, país, tipo de dispositivo y navegador, de forma agregada y sin identificarte.",
+    ],
+  },
+  {
+    id: "finalidad",
+    title: "Para qué y con qué base legal",
+    paragraphs: [
+      "Usamos los datos del formulario para contactarte, organizar la demo y responder a tus preguntas sobre DiariaMente. La base legal es tu consentimiento, que das al marcar la casilla del formulario (art. 6.1.a RGPD), y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD).",
+      "Usamos las estadísticas de visita para saber qué partes de la web funcionan mejor. La base legal es nuestro interés legítimo en mejorar la web (art. 6.1.f RGPD); no permiten identificarte.",
+      "No tomamos decisiones automatizadas ni elaboramos perfiles con estos datos, y no los usamos para enviarte publicidad sin tu permiso.",
+    ],
+  },
+  {
+    id: "conservacion",
+    title: "Cuánto tiempo los conservamos",
+    paragraphs: [
+      "Los datos de la solicitud de demo se conservan mientras mantengamos el contacto contigo y, como máximo, 12 meses desde tu último mensaje si no llegas a contratar. Si contratas, pasan a regirse por la relación contractual.",
+      "Las estadísticas de visita se conservan de forma agregada y no contienen datos que te identifiquen.",
+    ],
+  },
+  {
+    id: "destinatarios",
+    title: "Con quién los compartimos",
+    paragraphs: [
+      "No vendemos ni cedemos tus datos. Solo los tratan los proveedores que necesitamos para que la web funcione, como encargados del tratamiento y con contrato conforme al RGPD:",
+    ],
+    items: [
+      "Vercel Inc.: alojamiento de la web y estadísticas de visita.",
+      "Resend (Plus Five Five, Inc.): envío del email con tu solicitud de demo.",
+    ],
+  },
+  {
+    id: "transferencias",
+    title: "Transferencias internacionales",
+    paragraphs: [
+      "Estos proveedores pueden tratar datos en Estados Unidos. Las transferencias se amparan en el Marco de Privacidad de Datos UE-EE. UU. o, en su defecto, en las cláusulas contractuales tipo aprobadas por la Comisión Europea.",
+    ],
+  },
+  {
+    id: "cookies",
+    title: "Cookies",
+    paragraphs: [
+      "Esta web no usa cookies de publicidad ni de seguimiento. Las estadísticas de visita funcionan sin cookies, por eso no te mostramos un banner de consentimiento.",
+    ],
+  },
+  {
+    id: "derechos",
+    title: "Tus derechos",
+    paragraphs: [
+      `Puedes acceder a tus datos, rectificarlos, suprimirlos, oponerte a su tratamiento, limitarlo o pedir su portabilidad escribiendo a ${SITE.legal.email}. También puedes retirar tu consentimiento en cualquier momento, sin que afecte a lo tratado antes.`,
+      "Si crees que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).",
+    ],
+  },
+  {
+    id: "cambios",
+    title: "Cambios en esta política",
+    paragraphs: [
+      "Si cambiamos algo relevante, actualizaremos esta página y la fecha de última actualización.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Política de privacidad · DiariaMente"
+  description="Cómo trata DiariaMente los datos de su web informativa y del formulario de demo: finalidad, conservación, proveedores y tus derechos."
+>
+  <main id="contenido" tabindex="-1" class="bg-cream px-4 pt-32 pb-24 sm:pt-40">
+    <article class="mx-auto max-w-3xl">
+      <header class="border-b border-line pb-10">
+        <h1 class="display-lg">Política de privacidad</h1>
+        <p class="mt-6 text-ink-soft">Última actualización: {updated}</p>
+      </header>
+
+      {
+        sections.map((section) => (
+          <section id={section.id} class="border-b border-line py-10 last:border-b-0">
+            <h2 class="display-md">{section.title}</h2>
+            <div class="mt-5 space-y-4 text-lg leading-relaxed text-ink-soft">
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              {section.items && (
+                <ul class="list-disc space-y-2 pl-6 marker:text-violet">
+                  {section.items.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+            </div>
+          </section>
+        ))
+      }
+    </article>
+  </main>
+</Layout>

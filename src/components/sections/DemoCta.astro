@@ -10,14 +10,14 @@ const inputClass =
 
 <section id="demo" class="relative overflow-hidden bg-lila pt-28 pb-28 sm:pt-36 sm:pb-36">
   <div class="shell relative grid items-start gap-14 lg:grid-cols-[1fr_1.05fr]">
-    <div class="lg:sticky lg:top-32" data-reveal>
+    <div class="lg:sticky lg:top-32" data-reveal="left">
       <h2 class="display-lg">Ve cómo encaja en tu clínica</h2>
       <p class="lead mt-8 max-w-xl text-ink/80">
         Te enseñamos el registro del paciente y cómo preparar la sesión desde la vista del psicólogo.
       </p>
     </div>
 
-    <div class="card relative p-6 sm:p-10" data-reveal style="--delay: 120ms">
+    <div class="card relative p-6 sm:p-10" data-reveal="scale" style="--delay: 120ms">
       <form action="/api/demo" method="post" class="grid gap-5 sm:grid-cols-2" data-demo-form>
         <FormField name="name" label="Nombre">
           <input name="name" autocomplete="name" required class={inputClass} placeholder="Ana López" />
@@ -50,7 +50,7 @@ const inputClass =
             <input name="consent" type="checkbox" required class="mt-0.5 size-5 shrink-0 accent-violet" />
             <span>
               Acepto que DiariaMente use estos datos para contactarme sobre la demo, según la{" "}
-              <a href={`${SITE.appUrl}/privacidad`} class="font-bold text-ink underline underline-offset-2">política de privacidad</a>.
+              <a href="/privacidad" class="font-bold text-ink underline underline-offset-2">política de privacidad</a>.
             </span>
           </label>
           <span id="consent-error" class="mt-1.5 hidden text-sm font-bold text-[#c42a3a]" data-error-for="consent"></span>
@@ -74,7 +74,9 @@ const inputClass =
 </section>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>("[data-demo-form]");
+  import { animate, spring } from "motion";
+
+  const form =document.querySelector<HTMLFormElement>("[data-demo-form]");
   const status = document.querySelector<HTMLElement>("[data-form-status]");
   const success = document.querySelector<HTMLElement>("[data-form-success]");
   const label = document.querySelector<HTMLElement>("[data-submit-label]");
@@ -128,6 +130,9 @@ const inputClass =
         form.classList.add("hidden");
         success?.classList.replace("hidden", "flex");
         success?.focus();
+        if (success && document.documentElement.classList.contains("motion")) {
+          animate(success, { opacity: [0, 1], scale: [0.9, 1] }, { type: spring, bounce: 0.45, visualDuration: 0.6 });
+        }
         return;
       }
 

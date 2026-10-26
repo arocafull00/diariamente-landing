@@ -10,19 +10,21 @@ const steps = [
 ];
 ---
 
-<section id="como-funciona" class="relative overflow-hidden rounded-[var(--radius-section)] bg-violet-deep py-24 text-white sm:py-32">
+<section id="como-funciona" class="relative overflow-hidden rounded-[var(--radius-section)] bg-violet-deep py-24 text-white sm:py-32" data-scale-in>
   <div class="shell grid items-center gap-16 lg:grid-cols-[1fr_auto]">
     <div>
       <div data-reveal>
         <h2 class="display-lg max-w-2xl">Qué registra tu paciente</h2>
         <p class="lead mt-6 max-w-xl text-white/85">Tu paciente puede guardar una emoción al momento o continuar para contar qué ha pasado.</p>
       </div>
-      <ol class="mt-12 grid gap-3 sm:grid-cols-2">
+      <ol class="mt-12 grid gap-3 sm:grid-cols-2" data-stagger style="--delay: 150ms">
         {steps.map((step, index) => <JourneyStep index={index + 1} {...step} />)}
       </ol>
     </div>
-    <div class="mx-auto" data-reveal style="--delay: 150ms">
-      <PhoneMockup class="rotate-2" />
+    <div class="mx-auto" data-reveal="right" style="--delay: 150ms">
+      <div data-parallax="-0.3" data-tilt="10">
+        <PhoneMockup class="rotate-2" />
+      </div>
     </div>
   </div>
 </section>

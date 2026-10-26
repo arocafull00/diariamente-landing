@@ -14,7 +14,7 @@ const privacyItems = [
 
 <section id="psicologo" class="relative bg-cream pb-24 sm:pb-32">
   <div class="shell">
-    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-reveal>Prepara la sesión con lo que ya ha pasado</h2>
+    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-split>Prepara la sesión con lo que ya ha pasado</h2>
 
     <div class="space-y-20 sm:space-y-28">
       <FeatureRow
@@ -39,15 +39,15 @@ const privacyItems = [
         title="En su móvil, sin pasar por una tienda"
         text="Tu paciente puede instalar DiariaMente desde el navegador y activar el recordatorio diario. Su acceso es gratuito."
       >
-        <div class="space-y-3">
-          <div class="card flex items-center gap-3 p-4">
-            <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-sun"><BellRing size={20} /></span>
+        <div class="space-y-3" data-stagger style="--delay: 250ms">
+          <div class="card flex items-center gap-3 p-4" data-wiggle>
+            <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-sun" data-wiggle-target><BellRing size={20} /></span>
             <div class="text-sm">
               <p class="font-bold">DiariaMente · ahora</p>
               <p class="text-ink-soft">¿Cómo ha ido tu día? Tómate un momento para registrarlo.</p>
             </div>
           </div>
-          <div class="card ml-8 flex items-center gap-3 p-4">
+          <div class="card ml-8 flex items-center gap-3 p-4" data-lift>
             <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-lila-soft"><Smartphone size={20} /></span>
             <div class="text-sm">
               <p class="font-bold">Instalada en el móvil</p>
@@ -63,8 +63,8 @@ const privacyItems = [
         title="El paciente controla la vinculación"
         text="Cada profesional accede a los registros de sus pacientes vinculados. El paciente puede desvincularse y dejar de compartirlos cuando quiera."
       >
-        <ul class="card divide-y divide-line px-6 text-[0.95rem]">
-          {privacyItems.map((item) => <li class="py-4">{item}</li>)}
+        <ul class="card divide-y divide-line px-6 text-[0.95rem]" data-stagger style="--delay: 250ms">
+          {privacyItems.map((item) => <li class="py-4" data-nudge>{item}</li>)}
         </ul>
       </FeatureRow>
     </div>

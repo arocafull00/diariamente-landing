@@ -268,9 +268,35 @@
     to { opacity: 1; transform: none; }
   }
 
-  [data-reveal].is-visible {
-    animation: arrive var(--duration-slow) var(--ease-smooth-out) both;
+  .motion [data-reveal],
+  .motion [data-stagger] > *,
+  .motion [data-pop],
+  .motion [data-split]:not(.is-split),
+  .motion [data-split] .word {
+    opacity: 0;
   }
+
+  [data-split] .word { display: inline-block; }
+
+  .motion [data-bar],
+  .motion [data-draw] {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .scroll-progress {
+    display: none;
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 70;
+    height: 3px;
+    transform-origin: left;
+    transform: scaleX(0);
+    background: linear-gradient(90deg, var(--color-coral), var(--color-sun), var(--color-mint), var(--color-sky), var(--color-violet));
+    pointer-events: none;
+  }
+  .motion .scroll-progress { display: block; }
+
   @keyframes arrive {
     from { opacity: 0.88; transform: translateY(12px); }
     to { opacity: 1; transform: none; }
@@ -290,7 +316,6 @@
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; }
-    [data-reveal].is-visible,
     .menu-panel:not(.hidden),
     .faq-item[open] .faq-answer,
     .wave::after,

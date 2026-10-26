@@ -14,14 +14,15 @@ const panel = { coral: "bg-coral-soft", sky: "bg-sky-soft", sun: "bg-sun-soft", 
 <div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
   <div
     class:list={["flex min-h-[20rem] items-center justify-center rounded-[var(--radius-card)] px-6 py-12 sm:min-h-[26rem]", panel, reverse && "md:order-2"]}
-    data-reveal
+    data-reveal="scale"
+    data-tilt="6"
   >
-    <div class="w-full max-w-sm">
+    <div class="w-full max-w-sm" data-parallax="-0.12">
       <slot />
     </div>
   </div>
 
-  <div class:list={["px-2 py-4 sm:px-6 md:max-w-lg", reverse ? "md:justify-self-start" : "md:justify-self-end"]} data-reveal>
+  <div class:list={["px-2 py-4 sm:px-6 md:max-w-lg", reverse ? "md:justify-self-start" : "md:justify-self-end"]} data-reveal={reverse ? "left" : "right"} style="--delay: 120ms">
     <h3 class="display-md">{title}</h3>
     <p class="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">{text}</p>
   </div>

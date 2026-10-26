@@ -9,8 +9,8 @@ interface Props {
 const { index, title, text, tone } = Astro.props;
 ---
 
-<li class="flex gap-4 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10" data-reveal style={`--delay: ${index * 60}ms`}>
-  <span class:list={["grid size-9 shrink-0 place-items-center rounded-full font-bold text-ink", tone]}>{index}</span>
+<li class="flex gap-4 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10" data-lift data-wiggle>
+  <span data-wiggle-target class:list={["grid size-9 shrink-0 place-items-center rounded-full font-bold text-ink", tone]}>{index}</span>
   <span>
     <span class="block font-bold">{title}</span>
     <span class="mt-1 block text-sm leading-relaxed text-white/85">{text}</span>

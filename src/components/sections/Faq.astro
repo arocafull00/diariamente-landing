@@ -32,8 +32,8 @@ const faqs = [
 
 <section id="faq" class="bg-cream pb-24 sm:pb-32">
   <div class="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-    <h2 class="display-lg" data-reveal>Preguntas frecuentes</h2>
-    <div class="space-y-3">
+    <h2 class="display-lg" data-split>Preguntas frecuentes</h2>
+    <div class="space-y-3" data-stagger>
       {faqs.map((faq) => <FaqItem question={faq.q} answer={faq.a} />)}
     </div>
   </div>
