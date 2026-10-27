@@ -146,19 +146,6 @@ const scrollEffects = () => {
     scroll(animate(el, { scale: [0.93, 1] }, { ease: "linear" }), { target: el, offset: ["start end", "start 35%"] });
   }
 
-  const ribbon = document.querySelector<HTMLElement>("[data-ribbon]");
-  const ribbonImage = document.querySelector<HTMLElement>("[data-ribbon-image]");
-  if (ribbon && ribbonImage) {
-    scroll(animate(ribbon, { scale: [0.86, 1], borderRadius: ["6rem", "3rem"] }, { ease: "linear" }), {
-      target: ribbon,
-      offset: ["start end", "center center"],
-    });
-    scroll(animate(ribbonImage, { y: ["-8%", "8%"], scale: [1.25, 1.2] }, { ease: "linear" }), {
-      target: ribbon,
-      offset: ["start end", "end start"],
-    });
-  }
-
   const header = document.querySelector<HTMLElement>("[data-header]");
   if (header) {
     let lastY = window.scrollY;

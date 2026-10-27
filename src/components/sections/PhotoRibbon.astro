@@ -1,24 +1,43 @@
 ---
-import Animo from "../illustrations/Animo.astro";
-
-const photo = "https://images.unsplash.com/photo-1758273241078-8eec353836be";
+import { Play } from "@lucide/astro";
 ---
 
-<section class="relative px-3 sm:px-4">
-  <div class="pointer-events-none absolute inset-x-3 inset-y-0 mx-auto max-w-[90rem] sm:inset-x-4">
-    <Animo variant="01_gradiente" label="Escuchada" class="-top-8 left-[8%] z-10 size-20 sm:-top-12 sm:size-28" />
-    <Animo variant="05_rosa_verde" class="right-[10%] -bottom-8 z-10 size-16 sm:-bottom-10 sm:size-24" />
-  </div>
-  <div class="relative mx-auto aspect-[4/5] max-w-[90rem] overflow-hidden rounded-[var(--radius-section)] sm:aspect-[16/9]" data-ribbon>
-    <img
-      src={`${photo}?w=1600&q=70&auto=format&fit=crop`}
-      srcset={`${photo}?w=800&q=70&auto=format&fit=crop 800w, ${photo}?w=1600&q=70&auto=format&fit=crop 1600w, ${photo}?w=2400&q=70&auto=format&fit=crop 2400w`}
-      sizes="100vw"
-      alt="Una psicóloga conversa con su paciente en consulta"
-      loading="lazy"
-      decoding="async"
-      class="absolute inset-0 size-full object-cover"
-      data-ribbon-image
-    />
+<section class="relative -mt-12 rounded-t-[var(--radius-section)] bg-cream px-3 pt-16 sm:px-4 sm:pt-24">
+  <div class="relative mx-auto max-w-[90rem]">
+    <div class="relative aspect-video overflow-hidden rounded-[var(--radius-section)] bg-white" data-launch-video>
+      <video
+        src="/diariamente-launch.mp4"
+        poster="/diariamente-launch-poster.jpg"
+        controls
+        playsinline
+        preload="none"
+        aria-label="Vídeo de lanzamiento de Diariamente"
+        class="absolute inset-0 size-full object-cover"
+      ></video>
+      <button
+        type="button"
+        class="group absolute inset-0 flex cursor-pointer items-end justify-start bg-[url(/diariamente-launch-poster.jpg)] bg-cover bg-center p-4 sm:p-8"
+        aria-label="Reproducir el vídeo de lanzamiento"
+      >
+        <span class="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-70"></span>
+        <span class="btn relative gap-2.5 px-4 transition-transform duration-300 group-hover:scale-105 sm:gap-3 sm:px-6 sm:text-lg">
+          <span class="grid size-8 place-items-center rounded-full bg-white/90 sm:size-10">
+            <Play size={18} fill="currentColor" aria-hidden="true" class="translate-x-px" />
+          </span>
+          Ver vídeo <span class="font-medium opacity-70">0:45</span>
+        </span>
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+  for (const wrap of document.querySelectorAll<HTMLElement>("[data-launch-video]")) {
+    const video = wrap.querySelector("video");
+    const cover = wrap.querySelector("button");
+    cover?.addEventListener("click", () => {
+      cover.remove();
+      video?.play();
+    });
+  }
+</script>

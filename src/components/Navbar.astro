@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { Menu, X } from "@lucide/astro";
-import logo from "../assets/diariamente-horizontal-color.svg";
+import logoMark from "../assets/diariamente-logo.png";
+import wordmark from "../assets/diariamente-wordmark.svg";
 import Button from "./Button.astro";
 import { NAV_LINKS, SITE } from "../lib/site";
 ---
@@ -12,8 +13,9 @@ import { NAV_LINKS, SITE } from "../lib/site";
       class="relative flex flex-1 items-center justify-between rounded-2xl bg-white py-2 pr-2 pl-3 shadow-[0_8px_30px_-12px_#25282c33] sm:pl-4"
       aria-label="Principal"
     >
-      <a href="/" class="flex items-center py-1" aria-label="Diariamente, inicio">
-        <Image src={logo} alt="" width={147} height={32} class="h-8 w-auto" loading="eager" />
+      <a href="/" class="flex items-center gap-2 py-1" aria-label="Diariamente, inicio">
+        <Image src={logoMark} alt="" width={32} height={32} class="size-8" loading="eager" />
+        <Image src={wordmark} alt="" width={115} height={16} class="h-4 w-auto" loading="eager" />
       </a>
 
       <ul class="hidden items-center gap-1 lg:flex">

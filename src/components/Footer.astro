@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/diariamente-horizontal-color.svg";
+import logoMark from "../assets/diariamente-logo.png";
+import wordmark from "../assets/diariamente-wordmark.svg";
 import { NAV_LINKS, SITE } from "../lib/site";
 import Animo from "./illustrations/Animo.astro";
 
@@ -38,8 +39,9 @@ const year = new Date().getFullYear();
   <div class="shell">
     <div class="flex flex-col gap-10 border-b border-line pb-10 md:flex-row md:items-start md:justify-between">
       <div class="max-w-sm">
-        <a href="/" class="inline-flex" aria-label="Diariamente, inicio">
-          <Image src={logo} alt="" width={184} height={40} class="h-10 w-auto" />
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="Diariamente, inicio">
+          <Image src={logoMark} alt="" width={40} height={40} class="size-10" />
+          <Image src={wordmark} alt="" width={143} height={20} class="h-5 w-auto" />
         </a>
         <p class="mt-4 text-ink-soft">Seguimiento TCC entre sesiones para clínicas de psicología.</p>
       </div>
