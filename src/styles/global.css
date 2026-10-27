@@ -390,24 +390,12 @@
   .animo-mint { --blob: var(--color-mint); --blob-light: var(--color-mint-light); --cheek: #ff9f8a; }
   .animo-sky { --blob: var(--color-sky); --blob-light: var(--color-sky-light); --cheek: #ff9fb4; }
 
-  .animo-face {
+  .animo-image {
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
-
-  .animo-cheek {
-    fill: var(--cheek);
-    opacity: 0.45;
-  }
-
-  .animo-eyes {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: animo-blink 5s infinite;
-  }
-
-  .animo:nth-child(2n) .animo-eyes { animation-delay: -1.7s; }
-  .animo:nth-child(3n) .animo-eyes { animation-delay: -3.1s; }
 
   .animo-label {
     position: absolute;
@@ -441,11 +429,6 @@
     0%, 100% { border-radius: 58% 42% 52% 48% / 50% 56% 44% 50%; }
     33% { border-radius: 46% 54% 44% 56% / 56% 46% 54% 44%; }
     66% { border-radius: 52% 48% 58% 42% / 44% 52% 48% 56%; }
-  }
-
-  @keyframes animo-blink {
-    0%, 92%, 100% { scale: 1 1; }
-    95% { scale: 1 0.1; }
   }
 
   @keyframes twinkle {
@@ -482,7 +465,6 @@
     .float,
     .animo-float,
     .animo-blob,
-    .animo-eyes,
     .sparkle,
     .marquee-track {
       animation: none;

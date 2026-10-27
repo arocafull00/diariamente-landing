@@ -5,10 +5,10 @@ import { NAV_LINKS, SITE } from "../lib/site";
 import Animo from "./illustrations/Animo.astro";
 
 const moods = [
-  { tone: "sun", face: "contenta" },
-  { tone: "sky", face: "tranquila" },
-  { tone: "mint", face: "emocionada" },
-  { tone: "coral", face: "sorprendida" },
+  "alegria",
+  "ansiedad",
+  "rabia",
+  "tristeza",
 ] as const;
 
 const year = new Date().getFullYear();
@@ -25,7 +25,7 @@ const year = new Date().getFullYear();
                 <div class="flex items-center gap-6 pr-6">
                   <span class="font-display text-2xl font-semibold whitespace-nowrap sm:text-3xl">¿Cómo te sientes hoy?</span>
                   <div class="relative size-10 shrink-0 sm:size-12">
-                    <Animo tone={mood.tone} face={mood.face} class="inset-0" />
+                    <Animo variant={mood} class="inset-0" />
                   </div>
                 </div>
               )),

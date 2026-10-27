@@ -1,62 +1,19 @@
 ---
 interface Props {
-  tone: "coral" | "sun" | "mint" | "sky";
-  face: "contenta" | "inquieta" | "tranquila" | "apatica" | "sorprendida" | "emocionada";
+  variant: "01_gradiente" | "02_azul_rosa" | "03_verde_morado" | "04_naranja_amarillo" | "05_rosa_verde" | "alegria" | "ansiedad" | "rabia" | "tristeza";
   label?: string;
   class?: string;
   style?: string;
   parallax?: number;
 }
 
-const { tone, face, label, class: className, style, parallax } = Astro.props;
+const { variant, label, class: className, style, parallax } = Astro.props;
 ---
 
 <div class:list={["animo", className]} style={style} data-parallax={parallax} aria-hidden="true">
   <div class="animo-body" data-animo>
     <div class="animo-float">
-      <div class:list={["animo-blob", `animo-${tone}`]}>
-        <svg viewBox="0 0 100 100" class="animo-face" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-          <ellipse cx="27" cy="62" rx="8" ry="5" class="animo-cheek" stroke="none" />
-          <ellipse cx="73" cy="62" rx="8" ry="5" class="animo-cheek" stroke="none" />
-          {face === "contenta" && (
-            <>
-              <g class="animo-eyes"><path d="M30 47q5-7 10 0M60 47q5-7 10 0" /></g>
-              <path d="M38 61q12 12 24 0" />
-            </>
-          )}
-          {face === "inquieta" && (
-            <>
-              <g class="animo-eyes" fill="currentColor" stroke="none"><circle cx="38" cy="46" r="4.5" /><circle cx="64" cy="46" r="4.5" /></g>
-              <path d="M30 35l10-3M60 32l10 3" />
-              <path d="M36 66q4-4 8 0t8 0t8 0" />
-            </>
-          )}
-          {face === "tranquila" && (
-            <>
-              <g class="animo-eyes"><path d="M30 47q5 5 10 0M60 47q5 5 10 0" /></g>
-              <path d="M44 62q6 5 12 0" />
-            </>
-          )}
-          {face === "apatica" && (
-            <>
-              <g class="animo-eyes"><path d="M29 47h11M60 47h11" /></g>
-              <path d="M42 64h16" />
-            </>
-          )}
-          {face === "sorprendida" && (
-            <>
-              <g class="animo-eyes" fill="currentColor" stroke="none"><circle cx="36" cy="45" r="5" /><circle cx="64" cy="45" r="5" /></g>
-              <ellipse cx="50" cy="64" rx="5" ry="6.5" />
-            </>
-          )}
-          {face === "emocionada" && (
-            <>
-              <g class="animo-eyes"><path d="M30 49l5-7 5 7M60 49l5-7 5 7" /></g>
-              <path d="M36 58h28q-2 14-14 14t-14-14z" fill="currentColor" />
-            </>
-          )}
-        </svg>
-      </div>
+      <img src={`/caras/${variant}.svg`} alt="" width="160" height="160" class="animo-image" decoding="async" draggable="false" />
       {label && <span class="animo-label">{label}</span>}
     </div>
   </div>

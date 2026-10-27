@@ -12,8 +12,7 @@ const { tone, title, text, reverse = false } = Astro.props;
 
 const panel = { coral: "bg-coral", sky: "bg-sky", sun: "bg-sun", mint: "bg-mint" }[tone];
 const bubble = { coral: "bg-coral-light", sky: "bg-sky-light", sun: "bg-sun-light", mint: "bg-mint-light" }[tone];
-const face = ({ coral: "inquieta", sky: "tranquila", sun: "emocionada", mint: "contenta" } as const)[tone];
-const peer = ({ coral: "sun", sky: "coral", sun: "mint", mint: "sky" } as const)[tone];
+const variant = ({ coral: "ansiedad", sky: "02_azul_rosa", sun: "04_naranja_amarillo", mint: "05_rosa_verde" } as const)[tone];
 ---
 
 <div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
@@ -25,7 +24,7 @@ const peer = ({ coral: "sun", sky: "coral", sun: "mint", mint: "sky" } as const)
         <slot />
       </div>
     </div>
-    <Animo tone={peer} face={face} class:list={["-top-7 z-10 size-16 sm:size-20", reverse ? "-left-3 sm:-left-6" : "-right-3 sm:-right-6"]} />
+    <Animo variant={variant} class:list={["-top-7 z-10 size-16 sm:size-20", reverse ? "-left-3 sm:-left-6" : "-right-3 sm:-right-6"]} />
   </div>
 
   <div class:list={["px-2 py-4 sm:px-6 md:max-w-lg", reverse ? "md:justify-self-start" : "md:justify-self-end"]} data-reveal={reverse ? "left" : "right"} style="--delay: 120ms">
