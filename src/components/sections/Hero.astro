@@ -1,15 +1,22 @@
 ---
 import { ArrowRight, Check, Plus, Zap } from "@lucide/astro";
-import Button from "../Button.astro";
+import Cta from "../Cta.astro";
 import Animo from "../illustrations/Animo.astro";
 import Sparkle from "../illustrations/Sparkle.astro";
 import DashboardMockup from "../mockups/DashboardMockup.astro";
 import PhoneMockup from "../mockups/PhoneMockup.astro";
+import { emphasize, type Audience } from "../../lib/audiences";
+
+interface Props {
+  copy: Audience;
+}
+
+const { copy } = Astro.props;
 
 const days = ["L", "M", "X", "J", "V", "S", "D"];
 ---
 
-<section class="relative overflow-hidden bg-white pt-[13.5rem] pb-24 sm:pt-[15rem] xl:pt-40 md:pb-28" data-hero data-animo-field>
+<section class="relative overflow-hidden bg-white pt-[13.5rem] pb-24 sm:pt-[11rem] xl:pt-32 md:pb-28" data-hero data-animo-field>
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     <div class="absolute -top-40 -right-40 size-[26rem] rounded-full bg-sun-soft sm:size-[34rem]" data-parallax="0.3"></div>
     <div class="absolute top-[22rem] -left-48 size-[24rem] rounded-full bg-sky-soft sm:size-[30rem]" data-parallax="-0.3"></div>
@@ -30,14 +37,15 @@ const days = ["L", "M", "X", "J", "V", "S", "D"];
 
   <div class="shell relative text-center" data-hero-copy>
     <h1 class="display-xl mx-auto max-w-4xl" data-split>
-      Llega a cada sesión sabiendo cómo se ha <em class="font-semibold text-[#d23a4c]">sentido</em>
+      <span class="mb-5 block font-sans text-base font-bold tracking-normal text-ink-soft sm:text-lg">{copy.hero.eyebrow}</span>
+      <Fragment set:html={emphasize(copy.hero.title, "font-semibold text-[#d23a4c]")} />
     </h1>
-    <p class="lead mx-auto mt-8 max-w-2xl text-ink/80 sm:mt-10" data-reveal style="--delay: 160ms">
-      Tus pacientes registran emociones, pensamientos y situaciones. Tu equipo revisa lo que ha ocurrido entre consultas.
+    <p class="lead mx-auto mt-8 max-w-2xl text-ink/80" data-reveal style="--delay: 160ms">
+      {copy.hero.lead}
     </p>
-    <div class="mt-10 flex flex-wrap items-center justify-center gap-3" data-stagger style="--delay: 320ms">
-      <Button href="#demo" variant="coral" class="min-h-14 px-8 text-lg">Pedir una demo</Button>
-      <a href="#precios" class="text-link px-3 py-3">Ver precios <ArrowRight size={17} aria-hidden="true" /></a>
+    <div class="mt-8 flex flex-col items-center gap-1" data-stagger style="--delay: 320ms">
+      <Cta cta={copy.hero.cta} variant="coral" class="min-h-14 px-8 text-lg" />
+      <a href={copy.hero.secondary.href} class="text-link px-3 py-2">{copy.hero.secondary.label} <ArrowRight size={17} aria-hidden="true" /></a>
     </div>
   </div>
 

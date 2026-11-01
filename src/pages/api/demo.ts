@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { DEMO_FROM_EMAIL, DEMO_TO_EMAIL, RESEND_API_KEY } from "astro:env/server";
 import { Resend } from "resend";
+import { AUDIENCE, AUDIENCES, AUDIENCE_KEYS, type Audience } from "../../lib/audiences";
 import { demoRequestSchema, type DemoRequest } from "../../lib/demo-request";
 
 export const prerender = false;
@@ -8,17 +9,17 @@ export const prerender = false;
 const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char] ?? char);
 
-const buildEmail = (data: DemoRequest) => {
+const buildEmail = (data: DemoRequest, { form }: Audience) => {
   const rows: [string, string][] = [
-    ["Nombre", data.name],
-    ["Clínica", data.clinic],
-    ["Email", data.email],
+    [form.name.label, data.name],
+    [form.clinic.label, data.clinic],
+    [form.email.label, data.email],
     ["Teléfono", data.phone || "No indicado"],
-    ["Psicólogos", data.teamSize],
+    [form.choice.label, data.teamSize],
     ["Mensaje", data.message || "Sin mensaje"],
   ];
 
-  const html = `<h2>Nueva solicitud de demo</h2><table cellpadding="6">${rows
+  const html = `<h2>${form.subject}</h2><table cellpadding="6">${rows
     .map(([label, value]) => `<tr><td><strong>${label}</strong></td><td>${escapeHtml(value).replace(/\n/g, "<br>")}</td></tr>`)
     .join("")}</table>`;
   const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
@@ -31,7 +32,7 @@ const respond = (request: Request, status: number, body: { ok: boolean; error?: 
 
   if (wantsJson) return Response.json(body, { status });
 
-  const target = body.ok ? "/gracias" : "/#demo";
+  const target = body.ok ? "/gracias" : "/#clinicas";
   return new Response(null, { status: 303, headers: { Location: target } });
 };
 
@@ -40,7 +41,9 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (form.get("website")) return respond(request, 200, { ok: true });
 
-  const parsed = demoRequestSchema.safeParse(Object.fromEntries(form));
+  const key = AUDIENCE_KEYS.find((candidate) => candidate === form.get("audience"));
+  const audience = key ? AUDIENCES[key] : AUDIENCE;
+  const parsed = demoRequestSchema(audience).safeParse(Object.fromEntries(form));
 
   if (!parsed.success) {
     const fields = Object.fromEntries(parsed.error.issues.map((issue) => [String(issue.path[0]), issue.message]));
@@ -52,13 +55,13 @@ export const POST: APIRoute = async ({ request }) => {
     return respond(request, 500, { ok: false, error: "No hemos podido enviar la solicitud. Inténtalo de nuevo más tarde." });
   }
 
-  const { html, text } = buildEmail(parsed.data);
+  const { html, text } = buildEmail(parsed.data, audience);
   const resend = new Resend(RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: DEMO_FROM_EMAIL,
     to: DEMO_TO_EMAIL,
     replyTo: parsed.data.email,
-    subject: `Demo Diariamente · ${parsed.data.clinic}`,
+    subject: `${audience.form.subject} · ${parsed.data.clinic}`,
     html,
     text,
   });

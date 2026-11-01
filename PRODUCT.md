@@ -10,7 +10,7 @@ Psicólogos y responsables de clínicas que valoran una herramienta de seguimien
 
 ## Product Purpose
 
-Presentar Diariamente y conseguir solicitudes de demo mediante el formulario existente. El precio publicado es 14,99 € al mes por psicólogo, con pacientes ilimitados y acceso gratuito para pacientes.
+Presentar Diariamente y conseguir que los psicólogos empiecen a usarla directamente: en web, el CTA principal lleva al registro en diariamente.es; en Android, a Google Play. Las clínicas piden una propuesta para su equipo mediante el formulario. El objetivo del producto es mejorar la adherencia del paciente entre sesiones y aprovechar más cada consulta, sabiendo qué ha pasado desde la última, qué reforzar y qué trabajar. El precio publicado es 9,99 € al mes por psicólogo, con pacientes ilimitados, el primer mes gratis y acceso gratuito para pacientes. Si un psicólogo invita a otro y este se une, los dos reciben un mes gratis.
 
 ## Brand Personality
 
@@ -18,12 +18,12 @@ Cercana, clara y cuidadosa: serena y cálida, profesional y fiable. Identidad de
 
 ## References and Anti-references
 
-Referencias guardadas por el usuario en Obsidian: Bird para espacio, pasos y FAQ abiertas; Scribbit para explicar una app y comparar dos opciones de precio. Evitar textos redundantes, CTA secundarios que compitan con la demo, métricas y testimonios inventados y prestaciones pendientes anunciadas como disponibles.
+Referencias guardadas por el usuario en Obsidian: Bird para espacio, pasos y FAQ abiertas; Scribbit para explicar una app y comparar dos opciones de precio. Evitar textos redundantes, CTA secundarios que compitan con empezar a usar la app, métricas y testimonios inventados y prestaciones pendientes anunciadas como disponibles.
 
 ## Design Principles
 
 - Explicar el beneficio con acciones concretas de pacientes y profesionales.
-- Reservar el botón principal para solicitar una demo; usar enlaces para explorar.
+- Reservar el botón principal para empezar a usar la app (primer mes gratis); el plan para clínicas tiene su propio CTA de solicitud de propuesta; usar enlaces para explorar.
 - Mostrar ejemplos ilustrativos identificados como tales, basados en funciones existentes.
 - Mantener la identidad y mejorar legibilidad, ritmo y adaptación móvil.
 - Conservar el precio; las notas de pricing son hipótesis, no una decisión comercial.

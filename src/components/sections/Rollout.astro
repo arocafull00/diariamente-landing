@@ -1,19 +1,30 @@
 ---
 import RolloutStep from "../RolloutStep.astro";
+import Cta from "../Cta.astro";
 import Sparkle from "../illustrations/Sparkle.astro";
+import { emphasize, type Audience } from "../../lib/audiences";
+
+const tones = ["coral", "sun", "sky"] as const;
+
+interface Props {
+  copy: Audience;
+}
+
+const { copy } = Astro.props;
 ---
 
 <section class="relative overflow-hidden bg-white py-24 sm:py-32">
   <div class="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-mint-soft" aria-hidden="true"></div>
   <div class="shell relative">
     <div class="relative mb-14 max-w-3xl">
-      <h2 class="display-lg" data-split>Cómo <em class="font-semibold text-[#d23a4c]">empezar</em></h2>
+      <h2 class="display-lg" data-split set:html={emphasize(copy.rollout.title, "font-semibold text-[#d23a4c]")} />
       <Sparkle class="absolute -top-6 left-[60%] size-6 text-sun sm:left-[32rem]" />
     </div>
     <ol class="grid gap-4 md:grid-cols-3 md:gap-5" data-stagger>
-      <RolloutStep index={1} tone="coral" title="Mira cómo encaja" text="Revisamos contigo el registro del paciente y la vista del psicólogo en una demo sin compromiso." />
-      <RolloutStep index={2} tone="sun" title="Crea las cuentas del equipo" text="Cada psicólogo tiene su propio acceso y gestiona a sus pacientes." />
-      <RolloutStep index={3} tone="sky" title="Vincula a tus pacientes" text="Comparte una invitación. Tras aceptar la vinculación, puedes consultar sus registros." />
+      {copy.rollout.steps.map((step, index) => <RolloutStep index={index + 1} tone={tones[index]} {...step} />)}
     </ol>
+    <div class="mt-12 flex justify-center">
+      <Cta cta={copy.rollout.cta} variant="coral" class="min-h-14 px-8 text-lg" />
+    </div>
   </div>
 </section>

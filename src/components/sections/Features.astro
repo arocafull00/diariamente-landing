@@ -3,24 +3,24 @@ import { BellRing, Check, Smartphone } from "@lucide/astro";
 import FeatureRow from "../FeatureRow.astro";
 import RecordStack from "../illustrations/RecordStack.astro";
 import SessionSummary from "../illustrations/SessionSummary.astro";
+import { emphasize, type Audience } from "../../lib/audiences";
 
-const privacyItems = [
-  "Solo el psicólogo vinculado ve los registros",
-  "Sin datos clínicos en las notificaciones",
-  "El paciente puede desvincularse cuando quiera",
-  "Borrado completo cuando el paciente lo pide",
-];
+interface Props {
+  copy: Audience;
+}
+
+const { copy } = Astro.props;
 ---
 
 <section id="psicologo" class="relative bg-cream pb-24 sm:pb-32">
   <div class="shell">
-    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-split>Prepara la sesión con lo que ya <em class="font-semibold text-[#d23a4c]">ha pasado</em></h2>
+    <h2 class="display-lg mx-auto mb-16 max-w-3xl text-center sm:mb-24" data-split set:html={emphasize(copy.features.title, "font-semibold text-[#d23a4c]")} />
 
     <div class="space-y-20 sm:space-y-28">
       <FeatureRow
         tone="coral"
-        title="Revisa lo que necesita atención"
-        text="Consulta las emociones, el contexto y la reflexión de cada paciente. Distingue los registros nuevos y añade tus propias notas privadas."
+        title={copy.features.rows[0].title}
+        text={copy.features.rows[0].text}
       >
         <RecordStack />
       </FeatureRow>
@@ -28,16 +28,16 @@ const privacyItems = [
       <FeatureRow
         tone="sky"
         reverse
-        title="Desde vuestra última sesión"
-        text="Un resumen reúne los registros nuevos, las emociones más frecuentes, los contextos que se repiten y los picos de intensidad. Puedes abrir cada registro para profundizar."
+        title={copy.features.rows[1].title}
+        text={copy.features.rows[1].text}
       >
         <SessionSummary />
       </FeatureRow>
 
       <FeatureRow
         tone="sun"
-        title="En su móvil, sin pasar por una tienda"
-        text="Tu paciente puede instalar Diariamente desde el navegador y activar el recordatorio diario. Su acceso es gratuito."
+        title={copy.features.rows[2].title}
+        text={copy.features.rows[2].text}
       >
         <div class="space-y-3" data-stagger style="--delay: 250ms">
           <div class="card flex items-center gap-3 p-4" data-wiggle>
@@ -60,11 +60,11 @@ const privacyItems = [
       <FeatureRow
         tone="mint"
         reverse
-        title="El paciente controla la vinculación"
-        text="Cada profesional accede a los registros de sus pacientes vinculados. El paciente puede desvincularse y dejar de compartirlos cuando quiera."
+        title={copy.features.rows[3].title}
+        text={copy.features.rows[3].text}
       >
         <ul class="card divide-y divide-line px-6 text-[0.95rem]" data-stagger style="--delay: 250ms">
-          {privacyItems.map((item) => <li class="flex items-center gap-3 py-4" data-nudge><span class="grid size-6 shrink-0 place-items-center rounded-full bg-mint"><Check size={14} stroke-width={3} /></span>{item}</li>)}
+          {copy.features.privacy.map((item) => <li class="flex items-center gap-3 py-4" data-nudge><span class="grid size-6 shrink-0 place-items-center rounded-full bg-mint"><Check size={14} stroke-width={3} /></span>{item}</li>)}
         </ul>
       </FeatureRow>
     </div>

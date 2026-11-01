@@ -2,8 +2,17 @@
 import { Image } from "astro:assets";
 import logoMark from "../assets/diariamente-logo.png";
 import wordmark from "../assets/diariamente-wordmark.svg";
-import { NAV_LINKS, SITE } from "../lib/site";
+import { SITE } from "../lib/site";
+import { AUDIENCES, type Audience } from "../lib/audiences";
 import Animo from "./illustrations/Animo.astro";
+
+interface Props {
+  copy: Audience;
+  landing: boolean;
+}
+
+const { copy, landing } = Astro.props;
+const anchor = (href: string) => (!landing && href.startsWith("#") ? `/${href}` : href);
 
 const moods = [
   "alegria",
@@ -13,6 +22,7 @@ const moods = [
 ] as const;
 
 const year = new Date().getFullYear();
+const others = Object.values(AUDIENCES).filter((audience) => audience.key !== copy.key);
 ---
 
 <footer class="bg-cream pb-10">
@@ -43,12 +53,14 @@ const year = new Date().getFullYear();
           <Image src={logoMark} alt="" width={40} height={40} class="size-10" />
           <Image src={wordmark} alt="" width={143} height={20} class="h-5 w-auto" />
         </a>
-        <p class="mt-4 text-ink-soft">Seguimiento TCC entre sesiones para clínicas de psicología.</p>
+        <p class="mt-4 text-ink-soft">{copy.footer.tagline}</p>
       </div>
       <nav aria-label="Pie de página" class="grid grid-cols-2 gap-x-12 gap-y-3 text-ink-soft">
-        {NAV_LINKS.map((link) => <a href={link.href} class="hover:text-ink">{link.label}</a>)}
-        <a href="/#demo" class="hover:text-ink">Solicitar demo</a>
+        {copy.nav.map((link) => <a href={anchor(link.href)} class="hover:text-ink">{link.label}</a>)}
+        <a href={anchor("#clinicas")} class="hover:text-ink">{copy.footer.formLink}</a>
+        {others.map((audience) => <a href={audience.url} class="hover:text-ink">{audience.name}</a>)}
         <a href={SITE.loginUrl} class="hover:text-ink">Acceder a la app</a>
+        <a href={SITE.playStoreUrl} class="hover:text-ink">Google Play</a>
         <a href="/privacidad" class="hover:text-ink">Privacidad</a>
       </nav>
     </div>

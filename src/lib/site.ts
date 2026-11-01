@@ -1,12 +1,11 @@
 export const SITE = {
   name: "Diariamente",
-  url: "https://info.diariamente.es",
   appUrl: "https://diariamente.es",
   loginUrl: "https://diariamente.es/login",
-  description:
-    "Seguimiento TCC para psicólogos y clínicas: registros emocionales y contexto antes de cada sesión. 14,99 €/mes por psicólogo; gratis para pacientes.",
-  pricePerPsychologist: "14,99",
-  priceAmount: "14.99",
+  signUpUrl: "https://diariamente.es/registro",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.arocafull.apppsicologia",
+  pricePerPsychologist: "9,99",
+  priceAmount: "9.99",
   legal: {
     owner: "Adrian Rocafull Berbel",
     taxId: "53882287A",
@@ -15,9 +14,8 @@ export const SITE = {
   },
 };
 
-export const NAV_LINKS = [
-  { href: "/#como-funciona", label: "Cómo funciona" },
-  { href: "/#psicologo", label: "Para tu clínica" },
-  { href: "/#precios", label: "Precios" },
-  { href: "/#faq", label: "Preguntas" },
-];
+export const AUDIENCE_URLS = {
+  psicologos: "https://info.diariamente.es",
+  clinicas: "https://clinicas.diariamente.es",
+  pacientes: "https://pacientes.diariamente.es",
+};

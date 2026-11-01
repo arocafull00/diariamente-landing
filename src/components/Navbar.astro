@@ -3,8 +3,17 @@ import { Image } from "astro:assets";
 import { Menu, X } from "@lucide/astro";
 import logoMark from "../assets/diariamente-logo.png";
 import wordmark from "../assets/diariamente-wordmark.svg";
-import Button from "./Button.astro";
-import { NAV_LINKS, SITE } from "../lib/site";
+import Cta from "./Cta.astro";
+import { SITE } from "../lib/site";
+import type { Audience } from "../lib/audiences";
+
+interface Props {
+  copy: Audience;
+  landing: boolean;
+}
+
+const { copy, landing } = Astro.props;
+const anchor = (href: string) => (!landing && href.startsWith("#") ? `/${href}` : href);
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4" data-header>
@@ -20,9 +29,9 @@ import { NAV_LINKS, SITE } from "../lib/site";
 
       <ul class="hidden items-center gap-1 lg:flex">
         {
-          NAV_LINKS.map((link) => (
+          copy.nav.map((link) => (
             <li>
-              <a href={link.href} class="rounded-xl px-3 py-2 text-[0.95rem] transition-colors hover:bg-sand">
+              <a href={anchor(link.href)} class="rounded-xl px-3 py-2 text-[0.95rem] transition-colors hover:bg-sand">
                 {link.label}
               </a>
             </li>
@@ -53,9 +62,9 @@ import { NAV_LINKS, SITE } from "../lib/site";
       >
         <ul class="flex flex-col">
           {
-            NAV_LINKS.map((link) => (
+            copy.nav.map((link) => (
               <li>
-                <a href={link.href} class="block rounded-xl px-4 py-3 text-lg hover:bg-sand" data-menu-link>
+                <a href={anchor(link.href)} class="block rounded-xl px-4 py-3 text-lg hover:bg-sand" data-menu-link>
                   {link.label}
                 </a>
               </li>
@@ -65,14 +74,14 @@ import { NAV_LINKS, SITE } from "../lib/site";
             <a href={SITE.loginUrl} class="block rounded-xl px-4 py-3 text-lg text-ink-soft hover:bg-sand" data-menu-link>Acceder a la app</a>
           </li>
           <li class="p-2 sm:hidden" data-menu-link>
-            <Button href="/#demo" variant="coral" class="w-full justify-center">Ver Diariamente en acción</Button>
+            <Cta cta={{ ...copy.navCta, href: copy.navCta.href && anchor(copy.navCta.href) }} variant="coral" class="w-full justify-center" />
           </li>
         </ul>
       </div>
     </nav>
 
     <div class="hidden items-center sm:flex">
-      <Button href="/#demo" variant="coral">Pedir una demo</Button>
+      <Cta cta={{ ...copy.navCta, href: copy.navCta.href && anchor(copy.navCta.href) }} variant="coral" />
     </div>
   </div>
 </header>

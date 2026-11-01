@@ -42,15 +42,20 @@ const splitWords = (el: HTMLElement) => {
   return all(".word", el);
 };
 
+const onShow = (el: HTMLElement, play: () => void) => {
+  if (el.closest("[data-hero-copy]")) play();
+  else inView(el, play, { margin: viewMargin });
+};
+
 const reveals = () => {
   for (const el of all("[data-reveal]")) {
     const keyframes = variants[el.dataset.reveal || "up"] ?? variants.up;
-    inView(el, () => void animate(el, keyframes, { ...settle, delay: delayOf(el) }), { margin: viewMargin });
+    onShow(el, () => void animate(el, keyframes, { ...settle, delay: delayOf(el) }));
   }
 
   for (const el of all("[data-split]")) {
     const words = splitWords(el);
-    inView(
+    onShow(
       el,
       () =>
         void animate(
@@ -58,16 +63,14 @@ const reveals = () => {
           { opacity: [0, 1], y: ["0.45em", "0em"], rotate: [4, 0], filter: ["blur(6px)", "blur(0px)"] },
           { ...settle, delay: stagger(0.055, { startDelay: delayOf(el) }) },
         ),
-      { margin: viewMargin },
     );
   }
 
   for (const el of all("[data-stagger]")) {
     const children = Array.from(el.children) as HTMLElement[];
-    inView(
+    onShow(
       el,
       () => void animate(children, { opacity: [0, 1], y: [28, 0] }, { ...settle, delay: stagger(0.08, { startDelay: delayOf(el) }) }),
-      { margin: viewMargin },
     );
   }
 

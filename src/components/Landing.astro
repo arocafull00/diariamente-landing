@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "./sections/Hero.astro";
+import Intro from "./sections/Intro.astro";
+import Features from "./sections/Features.astro";
+import PatientJourney from "./sections/PatientJourney.astro";
+import Rollout from "./sections/Rollout.astro";
+import PhotoRibbon from "./sections/PhotoRibbon.astro";
+import Pricing from "./sections/Pricing.astro";
+import Faq from "./sections/Faq.astro";
+import DemoCta from "./sections/DemoCta.astro";
+import type { Audience } from "../lib/audiences";
+
+interface Props {
+  copy: Audience;
+}
+
+const { copy } = Astro.props;
+---
+
+<Layout title={copy.title} description={copy.description} copy={copy} path="/">
+  <main id="contenido" tabindex="-1">
+    <Hero copy={copy} />
+    <PhotoRibbon />
+    <Intro copy={copy} />
+    <Features copy={copy} />
+    <div class="bg-cream px-3 sm:px-4"><PatientJourney copy={copy} /></div>
+    <Rollout copy={copy} />
+    <Pricing copy={copy} />
+    <Faq copy={copy} />
+    <DemoCta copy={copy} />
+  </main>
+</Layout>

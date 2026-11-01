@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE } from "../lib/site";
+import { AUDIENCE } from "../lib/audiences";
 
 const updated = "26 de octubre de 2026";
 
@@ -10,15 +11,16 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
     title: "Quién es el responsable",
     paragraphs: [
       `El responsable del tratamiento es ${SITE.legal.owner}, con NIF ${SITE.legal.taxId} y domicilio en ${SITE.legal.address}. Puedes escribirnos a ${SITE.legal.email} para cualquier cuestión sobre tus datos.`,
-      `Esta política cubre la web informativa ${SITE.url.replace("https://", "")}. El tratamiento de los datos dentro de la aplicación se explica en su propia política, en ${SITE.appUrl.replace("https://", "")}/privacidad.`,
+      `Esta política cubre la web informativa ${AUDIENCE.url.replace("https://", "")}. El tratamiento de los datos dentro de la aplicación se explica en su propia política, en ${SITE.appUrl.replace("https://", "")}/privacidad.`,
     ],
   },
   {
     id: "datos",
     title: "Qué datos tratamos",
-    paragraphs: ["Solo los que nos das al solicitar una demo y datos técnicos mínimos de la visita:"],
+    paragraphs: ["Solo los que nos das en nuestros formularios y datos técnicos mínimos de la visita:"],
     items: [
-      "Formulario de demo: nombre, clínica o consulta, email, número de psicólogos y, si los indicas, teléfono y mensaje.",
+      "Formulario para clínicas: nombre, clínica o consulta, email, número de psicólogos y, si los indicas, teléfono y mensaje.",
+      "Formulario de recomendación para pacientes: tu nombre, el nombre de tu psicólogo o centro, email, cómo nos has conocido y, si los indicas, teléfono y mensaje. Como indicar a tu psicólogo puede revelar que vas a terapia, solo tratamos estos datos con tu consentimiento explícito.",
       "Visita a la web: páginas vistas, país, tipo de dispositivo y navegador, de forma agregada y sin identificarte.",
     ],
   },
@@ -26,7 +28,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
     id: "finalidad",
     title: "Para qué y con qué base legal",
     paragraphs: [
-      "Usamos los datos del formulario para contactarte, organizar la demo y responder a tus preguntas sobre Diariamente. La base legal es tu consentimiento, que das al marcar la casilla del formulario (art. 6.1.a RGPD), y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD).",
+      "Usamos los datos del formulario para contactarte, enviarte una propuesta y responder a tus preguntas sobre Diariamente. La base legal es tu consentimiento, que das al marcar la casilla del formulario (art. 6.1.a RGPD; en el formulario de recomendación para pacientes, también art. 9.2.a RGPD), y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD).",
       "Usamos las estadísticas de visita para saber qué partes de la web funcionan mejor. La base legal es nuestro interés legítimo en mejorar la web (art. 6.1.f RGPD); no permiten identificarte.",
       "No tomamos decisiones automatizadas ni elaboramos perfiles con estos datos, y no los usamos para enviarte publicidad sin tu permiso.",
     ],
@@ -35,7 +37,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
     id: "conservacion",
     title: "Cuánto tiempo los conservamos",
     paragraphs: [
-      "Los datos de la solicitud de demo se conservan mientras mantengamos el contacto contigo y, como máximo, 12 meses desde tu último mensaje si no llegas a contratar. Si contratas, pasan a regirse por la relación contractual.",
+      "Los datos de la solicitud se conservan mientras mantengamos el contacto contigo y, como máximo, 12 meses desde tu último mensaje si no llegas a contratar. Si contratas, pasan a regirse por la relación contractual.",
       "Las estadísticas de visita se conservan de forma agregada y no contienen datos que te identifiquen.",
     ],
   },
@@ -47,7 +49,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
     ],
     items: [
       "Vercel Inc.: alojamiento de la web y estadísticas de visita.",
-      "Resend (Plus Five Five, Inc.): envío del email con tu solicitud de demo.",
+      "Resend (Plus Five Five, Inc.): envío del email con tu solicitud.",
     ],
   },
   {
@@ -84,7 +86,7 @@ const sections: { id: string; title: string; paragraphs: string[]; items?: strin
 
 <Layout
   title="Política de privacidad · Diariamente"
-  description="Cómo trata Diariamente los datos de su web informativa y del formulario de demo: finalidad, conservación, proveedores y tus derechos."
+  description="Cómo trata Diariamente los datos de su web informativa y de sus formularios: finalidad, conservación, proveedores y tus derechos."
 >
   <main id="contenido" tabindex="-1" class="bg-cream px-4 pt-32 pb-24 sm:pt-40">
     <article class="mx-auto max-w-3xl">

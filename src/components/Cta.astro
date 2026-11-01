@@ -1,0 +1,12 @@
+---
+import type { ComponentProps } from "astro/types";
+import Button from "./Button.astro";
+import StartButton from "./StartButton.astro";
+import type { Cta } from "../lib/audiences";
+
+type Props = Omit<ComponentProps<typeof Button>, "href"> & { cta: Cta };
+
+const { cta, ...rest } = Astro.props;
+---
+
+{cta.href ? <Button href={cta.href} {...rest}>{cta.label}</Button> : <StartButton {...rest}>{cta.label}</StartButton>}

@@ -1,0 +1,12 @@
+---
+import type { GetStaticPaths } from "astro";
+import Landing from "../../components/Landing.astro";
+import { AUDIENCES } from "../../lib/audiences";
+
+export const getStaticPaths = (() =>
+  import.meta.env.DEV ? Object.values(AUDIENCES).map((copy) => ({ params: { audience: copy.key }, props: { copy } })) : []) satisfies GetStaticPaths;
+
+const { copy } = Astro.props;
+---
+
+<Landing copy={copy} />

@@ -1,0 +1,11 @@
+---
+import type { ComponentProps } from "astro/types";
+import Button from "./Button.astro";
+import { SITE } from "../lib/site";
+
+type Props = Omit<ComponentProps<typeof Button>, "href">;
+---
+
+<Button href={SITE.signUpUrl} data-start-link {...Astro.props}>
+  <slot>Empieza gratis</slot>
+</Button>
