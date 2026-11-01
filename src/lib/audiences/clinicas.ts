@@ -17,13 +17,13 @@ export const clinicas: Audience = {
     { href: "#precios", label: "Precios" },
     { href: "#faq", label: "Preguntas" },
   ],
-  navCta: { label: "Pide tu propuesta", href: "#clinicas" },
+  navCta: { label: "Consigue tu precio reducido", href: "#clinicas" },
   hero: {
     eyebrow: "Seguimiento TCC entre sesiones para clínicas de psicología",
     title: "Que todo tu equipo llegue a cada sesión *preparado*",
     lead: "Los pacientes de tu clínica hacen sus autorregistros entre consultas y cada psicólogo revisa lo que ha pasado antes de la sesión.",
-    cta: { label: "Pide una propuesta para tu clínica", href: "#clinicas" },
-    secondary: { label: "Prueba primero con un psicólogo", href: SITE.signUpUrl },
+    cta: { label: "Consigue un precio reducido para tu clínica", href: "#clinicas" },
+    secondary: { label: "Prueba con un psicólogo de manera gratuita", href: SITE.signUpUrl },
   },
   intro: {
     title: "La semana de cada paciente, más allá de lo que *recuerda* en consulta",
@@ -64,7 +64,7 @@ export const clinicas: Audience = {
       { title: "Puesta en marcha acompañada", text: "Te ayudamos a dar de alta a tu equipo y a presentar Diariamente a vuestros pacientes." },
       { title: "Cada sesión, mejor aprovechada", text: "Tus psicólogos revisan lo que ha pasado desde la última consulta y deciden qué reforzar y qué trabajar." },
     ],
-    cta: { label: "Pide tu propuesta", href: "#clinicas" },
+    cta: { label: "Consigue un precio reducido para tu clínica", href: "#clinicas" },
   },
   pricing: {
     title: "Un plan para toda tu *clínica*",
@@ -80,7 +80,7 @@ export const clinicas: Audience = {
         "Facturación única para la clínica",
       ],
       note: { icon: "gift", text: "Cuéntanos cuántos psicólogos sois y te enviamos una propuesta sin compromiso." },
-      cta: { label: "Pide tu propuesta", href: "#clinicas" },
+      cta: { label: "Consigue un precio reducido para tu clínica", href: "#clinicas" },
     },
     secondary: {
       name: "Por psicólogo",
@@ -117,6 +117,6 @@ export const clinicas: Audience = {
   form: { ...psicologos.form, title: "Lleva Diariamente a toda tu *clínica*" },
   footer: {
     tagline: "Autorregistros y seguimiento TCC entre sesiones para clínicas de psicología.",
-    formLink: "Pide tu propuesta",
+    formLink: "Consigue tu precio reducido",
   },
 };

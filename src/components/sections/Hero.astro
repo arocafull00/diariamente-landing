@@ -45,7 +45,7 @@ const days = ["L", "M", "X", "J", "V", "S", "D"];
     </p>
     <div class="mt-8 flex flex-col items-center gap-1" data-stagger style="--delay: 320ms">
       <Cta cta={copy.hero.cta} variant="coral" class="min-h-14 px-8 text-lg" />
-      <a href={copy.hero.secondary.href} class="text-link px-3 py-2">{copy.hero.secondary.label} <ArrowRight size={17} aria-hidden="true" /></a>
+      <a href={copy.hero.secondary.href} {...(copy.hero.secondary.href.startsWith("http") && { target: "_blank", rel: "noopener" })} class="text-link px-3 py-2">{copy.hero.secondary.label} <ArrowRight size={17} aria-hidden="true" /></a>
     </div>
   </div>
 
