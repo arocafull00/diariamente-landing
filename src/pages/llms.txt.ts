@@ -11,7 +11,7 @@ const body = `# Diariamente · ${AUDIENCE.name.toLowerCase()}
 
 > ${AUDIENCE.description}
 
-Diariamente es una aplicación web instalable de seguimiento entre sesiones para terapia cognitivo-conductual (TCC). El paciente registra cómo se siente y puede añadir intensidad, contexto, sensaciones corporales y una reflexión sobre la situación, sus pensamientos y su conducta.
+Diariamente es una aplicación web instalable de seguimiento entre sesiones para terapia psicológica. El paciente registra cómo se siente y puede añadir intensidad, contexto, sensaciones corporales y una reflexión sobre la situación, sus pensamientos y su conducta.
 
 El psicólogo vinculado puede revisar los registros, añadir notas privadas y consultar un resumen desde la última sesión: emociones frecuentes, contextos repetidos y picos de intensidad. El paciente puede desvincularse cuando quiera. Las notificaciones no muestran el contenido de los registros.
 

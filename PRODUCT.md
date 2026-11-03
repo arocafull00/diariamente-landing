@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Psicólogos y responsables de clínicas que valoran una herramienta de seguimiento TCC entre sesiones. Quieren entender qué registra el paciente, qué pueden revisar y cuánto cuesta.
+Psicólogos y responsables de clínicas que valoran una herramienta de seguimiento entre sesiones. Quieren entender qué registra el paciente, qué pueden revisar y cuánto cuesta.
 
 ## Product Purpose
 

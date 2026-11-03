@@ -76,7 +76,7 @@ export const pacientes: Audience = {
       features: [
         "Registro de emociones e intensidad",
         "Contexto y sensaciones corporales",
-        "Registro de pensamientos de TCC",
+        "Registro de pensamientos",
         "Historial de tus registros",
         "Recordatorio diario",
         "Vinculación con tu psicólogo",
@@ -120,7 +120,7 @@ export const pacientes: Audience = {
     },
     {
       q: "¿Qué es un registro de pensamientos?",
-      a: "Es el autorregistro que se usa en terapia cognitivo-conductual: además de la emoción, describes la situación, lo que pensaste y lo que hiciste. Te ayuda a ver patrones y a trabajarlos en sesión.",
+      a: "Es un autorregistro que se usa en terapia: además de la emoción, describes la situación, lo que pensaste y lo que hiciste. Te ayuda a ver patrones y a trabajarlos en sesión.",
     },
     {
       q: "¿Tengo que descargar algo?",

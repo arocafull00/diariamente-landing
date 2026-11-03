@@ -6,10 +6,10 @@ export const clinicas: Audience = {
   key: "clinicas",
   url: AUDIENCE_URLS.clinicas,
   name: "Para clínicas",
-  title: "Diariamente para clínicas · Seguimiento TCC entre sesiones para todo tu equipo",
+  title: "Diariamente para clínicas · Seguimiento entre sesiones para todo tu equipo",
   description:
-    "Autorregistros TCC para clínicas de psicología: los pacientes registran entre sesiones y cada psicólogo de tu equipo llega preparado. Precio por volumen y puesta en marcha acompañada.",
-  ogAlt: "Diariamente, seguimiento TCC entre sesiones para clínicas de psicología",
+    "Autorregistros emocionales para clínicas de psicología: los pacientes registran entre sesiones y cada psicólogo de tu equipo llega preparado. Precio por volumen y puesta en marcha acompañada.",
+  ogAlt: "Diariamente, seguimiento entre sesiones para clínicas de psicología",
   offer: { price: SITE.priceAmount, description: "Precio de referencia por psicólogo al mes. Propuesta a medida para clínicas. Gratis para pacientes." },
   nav: [
     { href: "#como-funciona", label: "Cómo funciona" },
@@ -19,9 +19,9 @@ export const clinicas: Audience = {
   ],
   navCta: { label: "Consigue tu precio reducido", href: "#clinicas" },
   hero: {
-    eyebrow: "Seguimiento TCC entre sesiones para clínicas de psicología",
-    title: "Que todo tu equipo llegue a cada sesión *preparado*",
-    lead: "Los pacientes de tu clínica hacen sus autorregistros entre consultas y cada psicólogo revisa lo que ha pasado antes de la sesión.",
+    eyebrow: "Seguimiento entre sesiones para clínicas de psicología",
+    title: "Diferencia tu clínica. Eleva la experiencia *terapéutica*",
+    lead: "Ofrece a tus pacientes un servicio premium de seguimiento entre sesiones y facilita que cada psicólogo prepare sus consultas con información relevante sobre su evolución.",
     cta: { label: "Consigue un precio reducido para tu clínica", href: "#clinicas" },
     secondary: { label: "Prueba con un psicólogo de manera gratuita", href: SITE.signUpUrl },
   },
@@ -44,7 +44,7 @@ export const clinicas: Audience = {
     ],
     notes: {
       title: "¿Qué puede anotar cada paciente diariamente?",
-      text: "Todos los pacientes de la clínica siguen las mismas preguntas del autorregistro de TCC, así cada psicólogo llega a la sesión con la situación completa.",
+      text: "Todos los pacientes de la clínica siguen las mismas preguntas del autorregistro, así cada psicólogo llega a la sesión con la situación completa.",
       questions: psicologos.features.notes.questions,
     },
   },
@@ -112,7 +112,7 @@ export const clinicas: Audience = {
   ],
   form: { ...psicologos.form, title: "Lleva Diariamente a toda tu *clínica*" },
   footer: {
-    tagline: "Autorregistros y seguimiento TCC entre sesiones para clínicas de psicología.",
+    tagline: "Autorregistros y seguimiento entre sesiones para clínicas de psicología.",
     formLink: "Consigue tu precio reducido",
   },
 };

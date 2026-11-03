@@ -5,9 +5,9 @@ export const psicologos: Audience = {
   key: "psicologos",
   url: AUDIENCE_URLS.psicologos,
   name: "Para psicólogos",
-  title: "Diariamente · App de autorregistros TCC para psicólogos",
-  description: `App para psicólogos: tus pacientes hacen autorregistros TCC y tú los revisas antes de cada sesión. ${SITE.pricePerPsychologist} €/mes, con el primer mes gratis.`,
-  ogAlt: "Diariamente, autorregistros TCC entre sesiones para psicólogos y clínicas",
+  title: "Diariamente · App de autorregistros emocionales para psicólogos",
+  description: `App para psicólogos: tus pacientes hacen autorregistros emocionales y tú los revisas antes de cada sesión. ${SITE.pricePerPsychologist} €/mes, con el primer mes gratis.`,
+  ogAlt: "Diariamente, autorregistros emocionales entre sesiones para psicólogos y clínicas",
   offer: { price: SITE.priceAmount, description: "Por psicólogo al mes, con el primer mes gratis. Gratis para pacientes." },
   nav: [
     { href: "#como-funciona", label: "Cómo funciona" },
@@ -17,9 +17,9 @@ export const psicologos: Audience = {
   ],
   navCta: { label: "Empieza gratis" },
   hero: {
-    eyebrow: "App de autorregistros TCC para psicólogos",
-    title: "Llega a cada sesión sabiendo cómo se ha *sentido*",
-    lead: "Tus pacientes siguen implicados entre sesiones y tú llegas sabiendo qué reforzar y qué trabajar.",
+    eyebrow: "App de autorregistros emocionales para psicólogos",
+    title: "Diferencia tu consulta. Ofrece una experiencia terapéutica *premium*",
+    lead: "Accede a los registros emocionales de tus pacientes, prepara tus sesiones con antelación y ofrece un seguimiento personalizado.",
     cta: { label: "Empieza tu mes gratis" },
     secondary: { label: "Presupuesto para tu clínica", href: "#clinicas" },
   },
@@ -42,7 +42,7 @@ export const psicologos: Audience = {
     ],
     notes: {
       title: "¿Qué puede anotar el paciente diariamente?",
-      text: "Diariamente le guía con las preguntas del autorregistro de TCC. Responde a su ritmo y tú llegas a la sesión con la situación completa: qué pasó, qué pensó, qué sintió y qué hizo.",
+      text: "Diariamente le guía con las preguntas del autorregistro. Responde a su ritmo y tú llegas a la sesión con la situación completa: qué pasó, qué pensó, qué sintió y qué hizo.",
       questions: [
         "¿Qué te ha pasado de importante?",
         "¿Qué pensaste en ese momento?",
@@ -81,7 +81,7 @@ export const psicologos: Audience = {
       badges: ["Primer mes gratis", "Gratis para todos tus pacientes"],
       features: [
         "Pacientes ilimitados",
-        "Emociones, contexto, sensaciones y reflexión TCC",
+        "Emociones, contexto, sensaciones y reflexión",
         "Avisos de registros sin revisar",
         "Historial y resumen desde la última sesión",
         "Notas privadas del psicólogo",
@@ -123,8 +123,8 @@ export const psicologos: Audience = {
       a: "Sí. Si invitas a otro psicólogo y empieza a usar Diariamente, os regalamos un mes gratis a cada uno.",
     },
     {
-      q: "¿Sirve como autorregistro o registro de pensamientos de TCC?",
-      a: "Sí. Además de la emoción y su intensidad, el paciente puede describir la situación, sus pensamientos y su conducta, el contexto y las sensaciones corporales. Es la estructura del autorregistro habitual en terapia cognitivo-conductual, sin hojas en papel.",
+      q: "¿Sirve como autorregistro o registro de pensamientos?",
+      a: "Sí. Además de la emoción y su intensidad, el paciente puede describir la situación, sus pensamientos y su conducta, el contexto y las sensaciones corporales. Es la estructura del autorregistro habitual en terapia, sin hojas en papel.",
     },
     {
       q: "¿Mis pacientes tienen que descargar algo?",
@@ -157,7 +157,7 @@ export const psicologos: Audience = {
     subject: "Plan clínicas Diariamente",
   },
   footer: {
-    tagline: "App de autorregistros y seguimiento TCC entre sesiones para psicólogos y clínicas.",
+    tagline: "App de autorregistros y seguimiento entre sesiones para psicólogos y clínicas.",
     formLink: "Plan para clínicas",
   },
 };
