@@ -22,7 +22,11 @@ export interface Audience {
   navCta: Cta;
   hero: { eyebrow: string; title: string; lead: string; cta: Cta; secondary: Link };
   intro: { title: string; text: string; link: string };
-  features: { title: string; rows: [Item, Item, Item, Item]; privacy: string[] };
+  features: {
+    title: string;
+    rows: [Item, Item];
+    notes: Item & { questions: [string, string, string, string, string] };
+  };
   journey: { title: string; lead: string; steps: [Item, Item, Item, Item] };
   rollout: { title: string; steps: [Item, Item, Item]; cta: Cta };
   pricing: {

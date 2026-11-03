@@ -41,16 +41,12 @@ export const clinicas: Audience = {
         title: "Desde la última sesión",
         text: "Antes de cada consulta, un resumen reúne los registros nuevos, las emociones más frecuentes, los contextos que se repiten y los picos de intensidad.",
       },
-      {
-        title: "Fácil para los pacientes de la clínica",
-        text: "Se instala desde el navegador, sin pasar por una tienda, y tiene recordatorio diario. Para los pacientes es gratis.",
-      },
-      {
-        title: "Privacidad que puedes explicar en consulta",
-        text: "Cada profesional solo accede a los registros de sus pacientes vinculados. El paciente puede desvincularse y dejar de compartirlos cuando quiera.",
-      },
     ],
-    privacy: psicologos.features.privacy,
+    notes: {
+      title: "¿Qué puede anotar cada paciente diariamente?",
+      text: "Todos los pacientes de la clínica siguen las mismas preguntas del autorregistro de TCC, así cada psicólogo llega a la sesión con la situación completa.",
+      questions: psicologos.features.notes.questions,
+    },
   },
   journey: {
     title: "El registro emocional de cada *paciente*",

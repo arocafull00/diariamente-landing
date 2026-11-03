@@ -1,5 +1,6 @@
 export const SITE = {
   name: "Diariamente",
+  alternateNames: ["DiariaMente", "DiariaMente: Diario emocional"],
   appUrl: "https://diariamente.es",
   loginUrl: "https://diariamente.es/login",
   signUpUrl: "https://diariamente.es/registro",

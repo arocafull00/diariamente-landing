@@ -39,21 +39,18 @@ export const psicologos: Audience = {
         title: "Desde vuestra última sesión",
         text: "Un resumen reúne los registros nuevos, las emociones más frecuentes, los contextos que se repiten y los picos de intensidad. Puedes abrir cada registro para profundizar.",
       },
-      {
-        title: "En su móvil, sin pasar por una tienda",
-        text: "Tu paciente puede instalar Diariamente desde el navegador y activar el recordatorio diario. Su acceso es gratuito.",
-      },
-      {
-        title: "El paciente controla la vinculación",
-        text: "Cada profesional accede a los registros de sus pacientes vinculados. El paciente puede desvincularse y dejar de compartirlos cuando quiera.",
-      },
     ],
-    privacy: [
-      "Solo el psicólogo vinculado ve los registros",
-      "Sin datos clínicos en las notificaciones",
-      "El paciente puede desvincularse cuando quiera",
-      "Borrado completo cuando el paciente lo pide",
-    ],
+    notes: {
+      title: "¿Qué puede anotar el paciente diariamente?",
+      text: "Diariamente le guía con las preguntas del autorregistro de TCC. Responde a su ritmo y tú llegas a la sesión con la situación completa: qué pasó, qué pensó, qué sintió y qué hizo.",
+      questions: [
+        "¿Qué te ha pasado de importante?",
+        "¿Qué pensaste en ese momento?",
+        "¿Qué emociones sentiste en ese momento?",
+        "¿Qué sentiste en tu cuerpo?",
+        "¿Qué hiciste en ese momento?",
+      ],
+    },
   },
   journey: {
     title: "El registro emocional de tu *paciente*",

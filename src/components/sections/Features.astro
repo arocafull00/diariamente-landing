@@ -1,5 +1,5 @@
 ---
-import { BellRing, Check, Smartphone } from "@lucide/astro";
+import { Brain, CalendarHeart, Footprints, Heart, PersonStanding } from "@lucide/astro";
 import FeatureRow from "../FeatureRow.astro";
 import RecordStack from "../illustrations/RecordStack.astro";
 import SessionSummary from "../illustrations/SessionSummary.astro";
@@ -10,6 +10,14 @@ interface Props {
 }
 
 const { copy } = Astro.props;
+
+const QUESTION_ICONS = [
+  { icon: CalendarHeart, chip: "bg-coral" },
+  { icon: Brain, chip: "bg-sky" },
+  { icon: Heart, chip: "bg-sun" },
+  { icon: PersonStanding, chip: "bg-mint" },
+  { icon: Footprints, chip: "bg-coral" },
+];
 ---
 
 <section id="psicologo" class="relative bg-cream pb-24 sm:pb-32">
@@ -36,35 +44,14 @@ const { copy } = Astro.props;
 
       <FeatureRow
         tone="sun"
-        title={copy.features.rows[2].title}
-        text={copy.features.rows[2].text}
+        title={copy.features.notes.title}
+        text={copy.features.notes.text}
       >
-        <div class="space-y-3" data-stagger style="--delay: 250ms">
-          <div class="card flex items-center gap-3 p-4" data-wiggle>
-            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-coral" data-wiggle-target><BellRing size={20} /></span>
-            <div class="text-sm">
-              <p class="font-bold">Diariamente · ahora</p>
-              <p class="text-ink-soft">¿Cómo ha ido tu día? Tómate un momento para registrarlo.</p>
-            </div>
-          </div>
-          <div class="card ml-8 flex items-center gap-3 p-4" data-lift>
-            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-mint"><Smartphone size={20} /></span>
-            <div class="text-sm">
-              <p class="font-bold">Instalada en el móvil</p>
-              <p class="text-ink-soft">Funciona en iPhone, Android y ordenador.</p>
-            </div>
-          </div>
-        </div>
-      </FeatureRow>
-
-      <FeatureRow
-        tone="mint"
-        reverse
-        title={copy.features.rows[3].title}
-        text={copy.features.rows[3].text}
-      >
-        <ul class="card divide-y divide-line px-6 text-[0.95rem]" data-stagger style="--delay: 250ms">
-          {copy.features.privacy.map((item) => <li class="flex items-center gap-3 py-4" data-nudge><span class="grid size-6 shrink-0 place-items-center rounded-full bg-mint"><Check size={14} stroke-width={3} /></span>{item}</li>)}
+        <ul class="card divide-y divide-line px-5 text-[0.95rem] font-semibold" data-stagger style="--delay: 250ms">
+          {copy.features.notes.questions.map((question, index) => {
+            const { icon: Icon, chip } = QUESTION_ICONS[index];
+            return <li class="flex items-center gap-3 py-3.5" data-nudge><span class:list={["grid size-9 shrink-0 place-items-center rounded-full", chip]}><Icon size={18} /></span>{question}</li>;
+          })}
         </ul>
       </FeatureRow>
     </div>

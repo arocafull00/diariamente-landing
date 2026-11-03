@@ -29,6 +29,7 @@ const jsonLd = {
       "@type": "Organization",
       "@id": organizationId,
       name: SITE.name,
+      alternateName: SITE.alternateNames,
       url: copy.url,
       logo: new URL("/icon-192.png", copy.url).href,
       email: SITE.legal.email,
@@ -37,6 +38,7 @@ const jsonLd = {
     {
       "@type": "SoftwareApplication",
       name: SITE.name,
+      alternateName: SITE.alternateNames,
       applicationCategory: "HealthApplication",
       operatingSystem: "Web, Android, iOS",
       url: copy.url,

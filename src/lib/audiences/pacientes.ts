@@ -1,11 +1,12 @@
 import { AUDIENCE_URLS, SITE } from "../site";
+import { psicologos } from "./psicologos";
 import type { Audience } from "./types";
 
 export const pacientes: Audience = {
   key: "pacientes",
   url: AUDIENCE_URLS.pacientes,
   name: "Para pacientes",
-  title: "Diariamente · Tu diario de emociones, también para tu terapia",
+  title: "Diariamente · Diario emocional para tu día a día y tu terapia",
   description:
     "Registra cómo te sientes cuando ocurre, con su contexto y tus pensamientos, y compártelo con tu psicólogo si vas a terapia. Gratis para pacientes.",
   ogAlt: "Diariamente, diario de emociones para tu día a día y tu terapia",
@@ -40,21 +41,12 @@ export const pacientes: Audience = {
         title: "Llega a la sesión con todo",
         text: "Tu psicólogo ve un resumen desde vuestra última sesión: tus registros nuevos, las emociones más frecuentes, los contextos que se repiten y los picos de intensidad.",
       },
-      {
-        title: "En tu móvil, sin pasar por una tienda",
-        text: "Instala Diariamente desde el navegador y activa un recordatorio diario para no olvidarte. Es gratis.",
-      },
-      {
-        title: "Tú decides quién lo ve",
-        text: "Solo tu psicólogo vinculado puede ver tus registros. Puedes desvincularte y dejar de compartirlos cuando quieras.",
-      },
     ],
-    privacy: [
-      "Solo tu psicólogo vinculado ve tus registros",
-      "Las notificaciones no muestran lo que escribes",
-      "Puedes desvincularte cuando quieras",
-      "Borrado completo de tu cuenta si lo pides",
-    ],
+    notes: {
+      title: "¿Qué puedes anotar cada día?",
+      text: "Diariamente te guía con unas preguntas sencillas para entender lo que te pasa. Respondes a tu ritmo, con tus palabras.",
+      questions: psicologos.features.notes.questions,
+    },
   },
   journey: {
     title: "Así es tu registro *emocional*",
