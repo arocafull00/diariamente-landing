@@ -31,6 +31,7 @@ for (const link of document.querySelectorAll<HTMLAnchorElement>("a[href]")) {
   const url = new URL(link.href);
   if (!["diariamente.es", "info.diariamente.es", "clinicas.diariamente.es", "pacientes.diariamente.es"].includes(url.hostname) || url.origin === location.origin) continue;
   if (!url.searchParams.has("utm_source")) url.searchParams.set("utm_source", channel);
+  if (!url.searchParams.has("utm_landing")) url.searchParams.set("utm_landing", location.hostname);
   link.href = url.href;
 }
 
